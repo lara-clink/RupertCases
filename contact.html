@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contato - Rupert Cases</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'yellow-custom': '#FFD700',
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-white text-gray-800">
+    <!-- Navigation -->
+    <nav class="bg-black text-white fixed w-full top-0 z-50 shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <a href="index.html" class="text-2xl font-bold text-yellow-custom">Rupert Cases</a>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="index.html" class="nav-link text-white hover:text-yellow-custom px-3 py-2">Home</a>
+                        <a href="about.html" class="nav-link text-white hover:text-yellow-custom px-3 py-2">Quem Somos</a>
+                        <a href="products.html" class="nav-link text-white hover:text-yellow-custom px-3 py-2">Produtos</a>
+                        <a href="contact.html" class="nav-link active text-white hover:text-yellow-custom px-3 py-2">Contato</a>
+                        <a href="feedback.html" class="nav-link text-white hover:text-yellow-custom px-3 py-2">Feedback</a>
+                    </div>
+                </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="text-white hover:text-yellow-custom">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="md:hidden hidden bg-black">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="index.html" class="block text-white hover:text-yellow-custom px-3 py-2">Home</a>
+                <a href="about.html" class="block text-white hover:text-yellow-custom px-3 py-2">Quem Somos</a>
+                <a href="products.html" class="block text-white hover:text-yellow-custom px-3 py-2">Produtos</a>
+                <a href="contact.html" class="block text-white hover:text-yellow-custom px-3 py-2">Contato</a>
+                <a href="feedback.html" class="block text-white hover:text-yellow-custom px-3 py-2">Feedback</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Contact Section -->
+    <section class="min-h-screen bg-black text-white py-20 pt-32">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in">
+                <h1 class="text-4xl md:text-5xl font-bold mb-6">Entre em Contato</h1>
+                <div class="w-24 h-1 bg-yellow-custom mx-auto mb-8"></div>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                    Tem dúvidas sobre nossos produtos? Precisa de um orçamento personalizado? Fale conosco!
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <!-- Contact Form -->
+                <div class="fade-in">
+                    <form id="contact-form" class="space-y-6">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-sm font-medium mb-2">Nome</label>
+                                <input type="text" required class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:ring-2 focus:ring-yellow-custom focus:border-transparent text-white">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium mb-2">Email</label>
+                                <input type="email" required class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:ring-2 focus:ring-yellow-custom focus:border-transparent text-white">
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium mb-2">Telefone</label>
+                            <input type="tel" class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:ring-2 focus:ring-yellow-custom focus:border-transparent text-white">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium mb-2">Assunto</label>
+                            <select class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:ring-2 focus:ring-yellow-custom focus:border-transparent text-white">
+                                <option>Dúvidas sobre produtos</option>
+                                <option>Orçamento personalizado</option>
+                                <option>Suporte técnico</option>
+                                <option>Outros</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium mb-2">Mensagem</label>
+                            <textarea rows="5" required class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:ring-2 focus:ring-yellow-custom focus:border-transparent text-white"></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-yellow-custom text-black py-3 px-6 rounded-lg font-semibold text-lg hover:bg-yellow-400 transition-colors">
+                            Enviar Mensagem
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Contact Info -->
+                <div class="fade-in">
+                    <div class="space-y-8">
+                        <div class="bg-gray-800 p-6 rounded-lg">
+                            <h3 class="text-2xl font-bold mb-6 text-yellow-custom">Informações de Contato</h3>
+                            <div class="space-y-4">
+                                <div class="flex items-center">
+                                    <div class="text-yellow-custom mr-4">📍</div>
+                                    <div>
+                                        <h4 class="font-semibold">Endereço</h4>
+                                        <p class="text-gray-300">Rua da Música, 123 - Centro<br>São Paulo, SP - 01234-567</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center">
+                                    <div class="text-yellow-custom mr-4">📞</div>
+                                    <div>
+                                        <h4 class="font-semibold">Telefone</h4>
+                                        <p class="text-gray-300">(11) 1234-5678</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center">
+                                    <div class="text-yellow-custom mr-4">📱</div>
+                                    <div>
+                                        <h4 class="font-semibold">WhatsApp</h4>
+                                        <p class="text-gray-300">(11) 99999-8888</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center">
+                                    <div class="text-yellow-custom mr-4">✉️</div>
+                                    <div>
+                                        <h4 class="font-semibold">Email</h4>
+                                        <p class="text-gray-300">contato@musiccasepro.com.br</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-gray-800 p-6 rounded-lg">
+                            <h3 class="text-xl font-bold mb-4 text-yellow-custom">Horário de Funcionamento</h3>
+                            <div class="space-y-2 text-gray-300">
+                                <div class="flex justify-between">
+                                    <span>Segunda a Sexta:</span>
+                                    <span>8h às 18h</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span>Sábado:</span>
+                                    <span>8h às 14h</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span>Domingo:</span>
+                                    <span>Fechado</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Social Media -->
+                        <div class="bg-gray-800 p-6 rounded-lg">
+                            <h3 class="text-xl font-bold mb-4 text-yellow-custom">Siga-nos</h3>
+                            <div class="flex space-x-4">
+                                <a href="#" class="text-gray-300 hover:text-yellow-custom text-2xl">📘</a>
+                                <a href="#" class="text-gray-300 hover:text-yellow-custom text-2xl">📷</a>
+                                <a href="#" class="text-gray-300 hover:text-yellow-custom text-2xl">🐦</a>
+                                <a href="#" class="text-gray-300 hover:text-yellow-custom text-2xl">📺</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Map Section -->
+            <div class="mt-20 fade-in">
+                <h2 class="text-3xl font-bold text-center mb-8 text-yellow-custom">Nossa Localização</h2>
+                <div class="bg-gray-800 rounded-lg p-8 text-center">
+                    <div class="text-6xl mb-4">🗺️</div>
+                    <p class="text-gray-300 mb-4">Estamos localizados no coração de São Paulo, facilmente acessível por transporte público.</p>
+                    <p class="text-yellow-custom font-semibold">Rua da Música, 123 - Centro - São Paulo, SP</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-2xl font-bold text-yellow-custom mb-4">Rupert Cases</h3>
+                    <p class="text-gray-300 mb-4">Proteção profissional para instrumentos musicais há mais de 15 anos.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-300 hover:text-yellow-custom">📘</a>
+                        <a href="#" class="text-gray-300 hover:text-yellow-custom">📷</a>
+                        <a href="#" class="text-gray-300 hover:text-yellow-custom">🐦</a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Produtos</h4>
+                    <ul class="space-y-2 text-gray-300">
+                        <li><a href="products.html" class="hover:text-yellow-custom">Cases para Guitarra</a></li>
+                        <li><a href="products.html" class="hover:text-yellow-custom">Cases para Baixo</a></li>
+                        <li><a href="products.html" class="hover:text-yellow-custom">Cases para Violino</a></li>
+                        <li><a href="products.html" class="hover:text-yellow-custom">Cases para Sopros</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Empresa</h4>
+                    <ul class="space-y-2 text-gray-300">
+                        <li><a href="about.html" class="hover:text-yellow-custom">Quem Somos</a></li>
+                        <li><a href="contact.html" class="hover:text-yellow-custom">Contato</a></li>
+                        <li><a href="feedback.html" class="hover:text-yellow-custom">Feedback</a></li>
+                        <li><a href="#" class="hover:text-yellow-custom">Política de Privacidade</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Contato</h4>
+                    <div class="space-y-2 text-gray-300">
+                        <p>📍 Rua da Música, 123 - Centro</p>
+                        <p>📞 (11) 1234-5678</p>
+                        <p>✉️ contato@musiccasepro.com.br</p>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-300">
+                <p>&copy; 2024 Rupert Cases. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
