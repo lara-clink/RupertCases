@@ -16,7 +16,44 @@
             }
         }
     </script>
-    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Custom CSS for Rupert Cases */
+        body {
+            box-sizing: border-box;
+        }
+        
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .nav-link {
+            position: relative;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: #FFD700;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 100%;
+        }
+    </style>
 </head>
 <body class="bg-white text-gray-800">
     <!-- Navigation -->
@@ -28,11 +65,11 @@
                 </div>
                 <div class="hidden md:block">
                     <div class="ml-10 flex items-baseline space-x-8">
-                        <a href="index.html" class="nav-link active text-white hover:text-yellow-custom px-3 py-2">Home</a>
-                        <a href="about.html" class="nav-link text-white hover:text-yellow-custom px-3 py-2">Quem Somos</a>
-                        <a href="products.html" class="nav-link text-white hover:text-yellow-custom px-3 py-2">Produtos</a>
-                        <a href="contact.html" class="nav-link text-white hover:text-yellow-custom px-3 py-2">Contato</a>
-                        <a href="feedback.html" class="nav-link text-white hover:text-yellow-custom px-3 py-2">Feedback</a>
+                        <a href="#home" class="nav-link active text-white hover:text-yellow-custom px-3 py-2">Home</a>
+                        <a href="#about" class="nav-link text-white hover:text-yellow-custom px-3 py-2">Quem Somos</a>
+                        <a href="#products" class="nav-link text-white hover:text-yellow-custom px-3 py-2">Produtos</a>
+                        <a href="#contact" class="nav-link text-white hover:text-yellow-custom px-3 py-2">Contato</a>
+                        <a href="#feedback" class="nav-link text-white hover:text-yellow-custom px-3 py-2">Feedback</a>
                     </div>
                 </div>
                 <div class="md:hidden">
@@ -48,17 +85,17 @@
         <!-- Mobile menu -->
         <div id="mobile-menu" class="md:hidden hidden bg-black">
             <div class="px-2 pt-2 pb-3 space-y-1">
-                <a href="index.html" class="block text-white hover:text-yellow-custom px-3 py-2">Home</a>
-                <a href="about.html" class="block text-white hover:text-yellow-custom px-3 py-2">Quem Somos</a>
-                <a href="products.html" class="block text-white hover:text-yellow-custom px-3 py-2">Produtos</a>
-                <a href="contact.html" class="block text-white hover:text-yellow-custom px-3 py-2">Contato</a>
-                <a href="feedback.html" class="block text-white hover:text-yellow-custom px-3 py-2">Feedback</a>
+                <a href="#home" class="block text-white hover:text-yellow-custom px-3 py-2">Home</a>
+                <a href="#about" class="block text-white hover:text-yellow-custom px-3 py-2">Quem Somos</a>
+                <a href="#products" class="block text-white hover:text-yellow-custom px-3 py-2">Produtos</a>
+                <a href="#contact" class="block text-white hover:text-yellow-custom px-3 py-2">Contato</a>
+                <a href="#feedback" class="block text-white hover:text-yellow-custom px-3 py-2">Feedback</a>
             </div>
         </div>
     </nav>
 
     <!-- Home Section -->
-    <section id="home" class="min-h-full bg-gradient-to-br from-gray-900 via-black to-gray-800 text-white pt-16">
+    <section id="home" class="min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-800 text-white pt-16">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
             <div class="text-center fade-in">
                 <h2 class="text-5xl md:text-7xl font-bold mb-6">
@@ -68,12 +105,12 @@
                     Cases de alta qualidade para guitarras, baixos, violões e muito mais. Proteção profissional para músicos exigentes.
                 </p>
                 <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                    <a href="products.html" class="bg-yellow-custom text-black px-8 py-4 rounded-lg font-semibold text-lg hover:bg-yellow-400 transition-colors text-center">
+                    <button onclick="scrollToSection('products')" class="bg-yellow-custom text-black px-8 py-4 rounded-lg font-semibold text-lg hover:bg-yellow-400 transition-colors">
                         Ver Produtos
-                    </a>
-                    <a href="contact.html" class="border-2 border-yellow-custom text-yellow-custom px-8 py-4 rounded-lg font-semibold text-lg hover:bg-yellow-custom hover:text-black transition-colors text-center">
+                    </button>
+                    <button onclick="scrollToSection('contact')" class="border-2 border-yellow-custom text-yellow-custom px-8 py-4 rounded-lg font-semibold text-lg hover:bg-yellow-custom hover:text-black transition-colors">
                         Fale Conosco
-                    </a>
+                    </button>
                 </div>
             </div>
             
@@ -97,6 +134,413 @@
         </div>
     </section>
 
+    <!-- About Section -->
+    <section id="about" class="min-h-screen bg-white py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6 text-black">Quem Somos</h2>
+                <div class="w-24 h-1 bg-yellow-custom mx-auto mb-8"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="fade-in">
+                    <h3 class="text-3xl font-bold mb-6 text-black">Nossa História</h3>
+                    <p class="text-lg text-gray-700 mb-6">
+                        A Rupert nasceu da paixão pela música e da necessidade de proteger instrumentos valiosos.
+                    </p>
+                    <p class="text-lg text-gray-700 mb-6">
+                        Nossa missão é oferecer proteção superior para instrumentos musicais, combinando design inovador, materiais de primeira qualidade e preços justos.
+                    </p>
+                    <div class="grid grid-cols-2 gap-6 mt-8">
+                        <div class="text-center p-4 bg-gray-100 rounded-lg">
+                            <div class="text-3xl font-bold text-yellow-custom">15+</div>
+                            <div class="text-gray-700">Anos de Experiência</div>
+                        </div>
+                        <div class="text-center p-4 bg-gray-100 rounded-lg">
+                            <div class="text-3xl font-bold text-yellow-custom">10k+</div>
+                            <div class="text-gray-700">Clientes Satisfeitos</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="fade-in">
+                    <div class="bg-black p-8 rounded-lg text-white">
+                        <h3 class="text-2xl font-bold mb-6 text-yellow-custom">Nossos Valores</h3>
+                        <div class="space-y-4">
+                            <div class="flex items-start">
+                                <div class="text-yellow-custom mr-3">✓</div>
+                                <div>
+                                    <h4 class="font-semibold">Qualidade Premium</h4>
+                                    <p class="text-gray-300">Materiais selecionados e acabamento impecável</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="text-yellow-custom mr-3">✓</div>
+                                <div>
+                                    <h4 class="font-semibold">Atendimento Personalizado</h4>
+                                    <p class="text-gray-300">Cada cliente é único e merece atenção especial</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="text-yellow-custom mr-3">✓</div>
+                                <div>
+                                    <h4 class="font-semibold">Inovação Constante</h4>
+                                    <p class="text-gray-300">Sempre buscando novas soluções e tecnologias</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" class="min-h-screen bg-gray-100 py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6 text-black">Nossos Produtos</h2>
+                <div class="w-24 h-1 bg-yellow-custom mx-auto mb-8"></div>
+                <p class="text-xl text-gray-700 max-w-3xl mx-auto">
+                    Descubra nossa linha completa de cases profissionais para todos os tipos de instrumentos musicais
+                </p>
+            </div>
+
+            <!-- Product Categories -->
+            <div class="flex flex-wrap justify-center mb-12 gap-4">
+                <button onclick="filterProducts('all')" class="filter-btn active bg-yellow-custom text-black px-6 py-3 rounded-lg font-semibold hover:bg-yellow-400 transition-colors">
+                    Todos
+                </button>
+                <button onclick="filterProducts('guitar')" class="filter-btn bg-white text-black px-6 py-3 rounded-lg font-semibold hover:bg-gray-200 transition-colors">
+                    Guitarras
+                </button>
+                <button onclick="filterProducts('bass')" class="filter-btn bg-white text-black px-6 py-3 rounded-lg font-semibold hover:bg-gray-200 transition-colors">
+                    Baixos
+                </button>
+                <button onclick="filterProducts('violin')" class="filter-btn bg-white text-black px-6 py-3 rounded-lg font-semibold hover:bg-gray-200 transition-colors">
+                    Violinos
+                </button>
+                <button onclick="filterProducts('wind')" class="filter-btn bg-white text-black px-6 py-3 rounded-lg font-semibold hover:bg-gray-200 transition-colors">
+                    Sopros
+                </button>
+            </div>
+
+            <!-- Products Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Guitar Cases -->
+                <div class="product-card guitar bg-white rounded-lg shadow-lg overflow-hidden fade-in">
+                    <div class="h-48 bg-gradient-to-br from-gray-800 to-black flex items-center justify-center">
+                        <div class="text-6xl">🎸</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Case Rígido Guitarra</h3>
+                        <p class="text-gray-600 mb-4">Proteção máxima com interior acolchoado e fechos de segurança</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-2xl font-bold text-yellow-custom">R$ 299,90</span>
+                            <button class="bg-black text-white px-4 py-2 rounded hover:bg-gray-800 transition-colors">
+                                Comprar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card guitar bg-white rounded-lg shadow-lg overflow-hidden fade-in">
+                    <div class="h-48 bg-gradient-to-br from-gray-700 to-gray-900 flex items-center justify-center">
+                        <div class="text-6xl">🎸</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Case Semi-Rígido Guitarra</h3>
+                        <p class="text-gray-600 mb-4">Leveza e proteção para o dia a dia do músico</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-2xl font-bold text-yellow-custom">R$ 189,90</span>
+                            <button class="bg-black text-white px-4 py-2 rounded hover:bg-gray-800 transition-colors">
+                                Comprar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bass Cases -->
+                <div class="product-card bass bg-white rounded-lg shadow-lg overflow-hidden fade-in">
+                    <div class="h-48 bg-gradient-to-br from-gray-800 to-black flex items-center justify-center">
+                        <div class="text-6xl">🎸</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Case Rígido Baixo</h3>
+                        <p class="text-gray-600 mb-4">Especialmente projetado para contrabaixos de 4 e 5 cordas</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-2xl font-bold text-yellow-custom">R$ 349,90</span>
+                            <button class="bg-black text-white px-4 py-2 rounded hover:bg-gray-800 transition-colors">
+                                Comprar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Violin Cases -->
+                <div class="product-card violin bg-white rounded-lg shadow-lg overflow-hidden fade-in">
+                    <div class="h-48 bg-gradient-to-br from-gray-700 to-gray-900 flex items-center justify-center">
+                        <div class="text-6xl">🎻</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Case Premium Violino</h3>
+                        <p class="text-gray-600 mb-4">Elegância e proteção para instrumentos clássicos</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-2xl font-bold text-yellow-custom">R$ 459,90</span>
+                            <button class="bg-black text-white px-4 py-2 rounded hover:bg-gray-800 transition-colors">
+                                Comprar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Wind Instruments -->
+                <div class="product-card wind bg-white rounded-lg shadow-lg overflow-hidden fade-in">
+                    <div class="h-48 bg-gradient-to-br from-gray-800 to-black flex items-center justify-center">
+                        <div class="text-6xl">🎺</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Case Trompete</h3>
+                        <p class="text-gray-600 mb-4">Proteção especializada para instrumentos de sopro</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-2xl font-bold text-yellow-custom">R$ 279,90</span>
+                            <button class="bg-black text-white px-4 py-2 rounded hover:bg-gray-800 transition-colors">
+                                Comprar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card wind bg-white rounded-lg shadow-lg overflow-hidden fade-in">
+                    <div class="h-48 bg-gradient-to-br from-gray-700 to-gray-900 flex items-center justify-center">
+                        <div class="text-6xl">🎷</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Case Saxofone</h3>
+                        <p class="text-gray-600 mb-4">Design ergonômico com compartimentos organizadores</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-2xl font-bold text-yellow-custom">R$ 399,90</span>
+                            <button class="bg-black text-white px-4 py-2 rounded hover:bg-gray-800 transition-colors">
+                                Comprar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="min-h-screen bg-black text-white py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">Entre em Contato</h2>
+                <div class="w-24 h-1 bg-yellow-custom mx-auto mb-8"></div>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                    Tem dúvidas sobre nossos produtos? Precisa de um orçamento personalizado? Fale conosco!
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <!-- Contact Form -->
+                <div class="fade-in">
+                    <form id="contact-form" class="space-y-6">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-sm font-medium mb-2">Nome</label>
+                                <input type="text" required class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:ring-2 focus:ring-yellow-custom focus:border-transparent text-white">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium mb-2">Email</label>
+                                <input type="email" required class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:ring-2 focus:ring-yellow-custom focus:border-transparent text-white">
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium mb-2">Telefone</label>
+                            <input type="tel" class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:ring-2 focus:ring-yellow-custom focus:border-transparent text-white">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium mb-2">Assunto</label>
+                            <select class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:ring-2 focus:ring-yellow-custom focus:border-transparent text-white">
+                                <option>Dúvidas sobre produtos</option>
+                                <option>Orçamento personalizado</option>
+                                <option>Suporte técnico</option>
+                                <option>Outros</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium mb-2">Mensagem</label>
+                            <textarea rows="5" required class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:ring-2 focus:ring-yellow-custom focus:border-transparent text-white"></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-yellow-custom text-black py-3 px-6 rounded-lg font-semibold text-lg hover:bg-yellow-400 transition-colors">
+                            Enviar Mensagem
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Contact Info -->
+                <div class="fade-in">
+                    <div class="space-y-8">
+                        <div class="bg-gray-800 p-6 rounded-lg">
+                            <h3 class="text-2xl font-bold mb-6 text-yellow-custom">Informações de Contato</h3>
+                            <div class="space-y-4">
+                                <div class="flex items-center">
+                                    <div class="text-yellow-custom mr-4">📍</div>
+                                    <div>
+                                        <h4 class="font-semibold">Endereço</h4>
+                                        <p class="text-gray-300">Rua da Música, 123 - Centro<br>São Paulo, SP - 01234-567</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center">
+                                    <div class="text-yellow-custom mr-4">📞</div>
+                                    <div>
+                                        <h4 class="font-semibold">Telefone</h4>
+                                        <p class="text-gray-300">(11) 1234-5678</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center">
+                                    <div class="text-yellow-custom mr-4">📱</div>
+                                    <div>
+                                        <h4 class="font-semibold">WhatsApp</h4>
+                                        <p class="text-gray-300">(11) 99999-8888</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center">
+                                    <div class="text-yellow-custom mr-4">✉️</div>
+                                    <div>
+                                        <h4 class="font-semibold">Email</h4>
+                                        <p class="text-gray-300">contato@musiccasepro.com.br</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-gray-800 p-6 rounded-lg">
+                            <h3 class="text-xl font-bold mb-4 text-yellow-custom">Horário de Funcionamento</h3>
+                            <div class="space-y-2 text-gray-300">
+                                <div class="flex justify-between">
+                                    <span>Segunda a Sexta:</span>
+                                    <span>8h às 18h</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span>Sábado:</span>
+                                    <span>8h às 14h</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span>Domingo:</span>
+                                    <span>Fechado</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Feedback Section -->
+    <section id="feedback" class="min-h-screen bg-gray-100 py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6 text-black">O Que Dizem Nossos Clientes</h2>
+                <div class="w-24 h-1 bg-yellow-custom mx-auto mb-8"></div>
+                <p class="text-xl text-gray-700 max-w-3xl mx-auto">
+                    Veja os depoimentos de músicos que confiam na Rupert para proteger seus instrumentos
+                </p>
+            </div>
+
+            <!-- Testimonials -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+                <div class="bg-white p-6 rounded-lg shadow-lg fade-in">
+                    <div class="flex items-center mb-4">
+                        <div class="text-yellow-custom text-xl">⭐⭐⭐⭐⭐</div>
+                    </div>
+                    <p class="text-gray-700 mb-4 italic">
+                        "Comprei um case rígido para minha guitarra e estou impressionado com a qualidade. Proteção total e acabamento perfeito!"
+                    </p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 bg-gray-300 rounded-full flex items-center justify-center mr-4">
+                            <span class="text-xl">🎸</span>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold">Carlos Silva</h4>
+                            <p class="text-gray-600 text-sm">Guitarrista</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white p-6 rounded-lg shadow-lg fade-in">
+                    <div class="flex items-center mb-4">
+                        <div class="text-yellow-custom text-xl">⭐⭐⭐⭐⭐</div>
+                    </div>
+                    <p class="text-gray-700 mb-4 italic">
+                        "Atendimento excepcional e produto de primeira qualidade. Meu violino está sempre protegido!"
+                    </p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 bg-gray-300 rounded-full flex items-center justify-center mr-4">
+                            <span class="text-xl">🎻</span>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold">Ana Costa</h4>
+                            <p class="text-gray-600 text-sm">Violinista</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white p-6 rounded-lg shadow-lg fade-in">
+                    <div class="flex items-center mb-4">
+                        <div class="text-yellow-custom text-xl">⭐⭐⭐⭐⭐</div>
+                    </div>
+                    <p class="text-gray-700 mb-4 italic">
+                        "Já comprei vários cases aqui. Sempre produtos de qualidade e preços justos. Recomendo!"
+                    </p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 bg-gray-300 rounded-full flex items-center justify-center mr-4">
+                            <span class="text-xl">🎺</span>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold">Roberto Santos</h4>
+                            <p class="text-gray-600 text-sm">Trompetista</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Feedback Form -->
+            <div class="bg-white p-8 rounded-lg shadow-lg fade-in">
+                <h3 class="text-2xl font-bold mb-6 text-center">Deixe Seu Feedback</h3>
+                <form id="feedback-form" class="max-w-2xl mx-auto">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                        <div>
+                            <label class="block text-sm font-medium mb-2 text-gray-700">Nome</label>
+                            <input type="text" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-custom focus:border-transparent">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium mb-2 text-gray-700">Email</label>
+                            <input type="email" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-custom focus:border-transparent">
+                        </div>
+                    </div>
+                    <div class="mb-6">
+                        <label class="block text-sm font-medium mb-2 text-gray-700">Avaliação</label>
+                        <div class="flex space-x-2">
+                            <button type="button" class="star-rating text-3xl text-gray-300 hover:text-yellow-custom" data-rating="1">⭐</button>
+                            <button type="button" class="star-rating text-3xl text-gray-300 hover:text-yellow-custom" data-rating="2">⭐</button>
+                            <button type="button" class="star-rating text-3xl text-gray-300 hover:text-yellow-custom" data-rating="3">⭐</button>
+                            <button type="button" class="star-rating text-3xl text-gray-300 hover:text-yellow-custom" data-rating="4">⭐</button>
+                            <button type="button" class="star-rating text-3xl text-gray-300 hover:text-yellow-custom" data-rating="5">⭐</button>
+                        </div>
+                    </div>
+                    <div class="mb-6">
+                        <label class="block text-sm font-medium mb-2 text-gray-700">Seu Depoimento</label>
+                        <textarea rows="4" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-custom focus:border-transparent" placeholder="Conte-nos sobre sua experiência..."></textarea>
+                    </div>
+                    <button type="submit" class="w-full bg-yellow-custom text-black py-3 px-6 rounded-lg font-semibold text-lg hover:bg-yellow-400 transition-colors">
+                        Enviar Feedback
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
 
     <!-- Footer -->
     <footer class="bg-black text-white py-12">
@@ -114,18 +558,18 @@
                 <div>
                     <h4 class="text-lg font-semibold mb-4">Produtos</h4>
                     <ul class="space-y-2 text-gray-300">
-                        <li><a href="products.html" class="hover:text-yellow-custom">Cases para Guitarra</a></li>
-                        <li><a href="products.html" class="hover:text-yellow-custom">Cases para Baixo</a></li>
-                        <li><a href="products.html" class="hover:text-yellow-custom">Cases para Violino</a></li>
-                        <li><a href="products.html" class="hover:text-yellow-custom">Cases para Sopros</a></li>
+                        <li><a href="#products" class="hover:text-yellow-custom">Cases para Guitarra</a></li>
+                        <li><a href="#products" class="hover:text-yellow-custom">Cases para Baixo</a></li>
+                        <li><a href="#products" class="hover:text-yellow-custom">Cases para Violino</a></li>
+                        <li><a href="#products" class="hover:text-yellow-custom">Cases para Sopros</a></li>
                     </ul>
                 </div>
                 <div>
                     <h4 class="text-lg font-semibold mb-4">Empresa</h4>
                     <ul class="space-y-2 text-gray-300">
-                        <li><a href="about.html" class="hover:text-yellow-custom">Quem Somos</a></li>
-                        <li><a href="contact.html" class="hover:text-yellow-custom">Contato</a></li>
-                        <li><a href="feedback.html" class="hover:text-yellow-custom">Feedback</a></li>
+                        <li><a href="#about" class="hover:text-yellow-custom">Quem Somos</a></li>
+                        <li><a href="#contact" class="hover:text-yellow-custom">Contato</a></li>
+                        <li><a href="#feedback" class="hover:text-yellow-custom">Feedback</a></li>
                         <li><a href="#" class="hover:text-yellow-custom">Política de Privacidade</a></li>
                     </ul>
                 </div>
@@ -144,6 +588,148 @@
         </div>
     </footer>
 
-    <script src="script.js"></script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'98e18110701fa5c6',t:'MTc2MDM4NjQ3NS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+    <script>
+        // JavaScript for Rupert Cases
+
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Smooth scrolling for navigation
+        function scrollToSection(sectionId) {
+            document.getElementById(sectionId).scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+
+        // Navigation link handling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    document.getElementById('mobile-menu').classList.add('hidden');
+                    
+                    // Update active nav link
+                    document.querySelectorAll('.nav-link').forEach(link => {
+                        link.classList.remove('active');
+                    });
+                    this.classList.add('active');
+                }
+            });
+        });
+
+        // Product filtering
+        function filterProducts(category) {
+            const products = document.querySelectorAll('.product-card');
+            const buttons = document.querySelectorAll('.filter-btn');
+            
+            // Update button styles
+            buttons.forEach(btn => {
+                btn.classList.remove('active', 'bg-yellow-custom', 'text-black');
+                btn.classList.add('bg-white', 'text-black');
+            });
+            
+            event.target.classList.add('active', 'bg-yellow-custom', 'text-black');
+            event.target.classList.remove('bg-white');
+            
+            // Filter products
+            products.forEach(product => {
+                if (category === 'all' || product.classList.contains(category)) {
+                    product.style.display = 'block';
+                } else {
+                    product.style.display = 'none';
+                }
+            });
+        }
+
+        // Star rating functionality
+        document.querySelectorAll('.star-rating').forEach(star => {
+            star.addEventListener('click', function() {
+                const rating = parseInt(this.dataset.rating);
+                const stars = document.querySelectorAll('.star-rating');
+                
+                stars.forEach((s, index) => {
+                    if (index < rating) {
+                        s.classList.remove('text-gray-300');
+                        s.classList.add('text-yellow-custom');
+                    } else {
+                        s.classList.remove('text-yellow-custom');
+                        s.classList.add('text-gray-300');
+                    }
+                });
+            });
+        });
+
+        // Form submissions
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Mensagem enviada com sucesso! Entraremos em contato em breve.');
+            this.reset();
+        });
+
+        document.getElementById('feedback-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Obrigado pelo seu feedback! Sua opinião é muito importante para nós.');
+            this.reset();
+            // Reset star rating
+            document.querySelectorAll('.star-rating').forEach(star => {
+                star.classList.remove('text-yellow-custom');
+                star.classList.add('text-gray-300');
+            });
+        });
+
+        // Scroll animations
+        function handleScrollAnimations() {
+            const elements = document.querySelectorAll('.fade-in');
+            
+            elements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+                
+                if (elementTop < window.innerHeight - elementVisible) {
+                    element.classList.add('visible');
+                }
+            });
+        }
+
+        // Active navigation based on scroll
+        function updateActiveNavigation() {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.getBoundingClientRect().top;
+                if (sectionTop <= 100) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + current) {
+                    link.classList.add('active');
+                }
+            });
+        }
+
+        // Event listeners
+        window.addEventListener('scroll', function() {
+            handleScrollAnimations();
+            updateActiveNavigation();
+        });
+
+        window.addEventListener('load', function() {
+            handleScrollAnimations();
+        });
+    </script>
+</body>
 </html>
