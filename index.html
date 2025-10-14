@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rupert - Cases para Instrumentos Musicais</title>
+    <title>Rubet - Cases para Instrumentos Musicais</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -16,58 +16,21 @@
             }
         }
     </script>
-    <style>
-        /* Custom CSS for Rupert Cases */
-        body {
-            box-sizing: border-box;
-        }
-        
-        .fade-in {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: all 0.6s ease;
-        }
-        
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        
-        .nav-link {
-            position: relative;
-            transition: color 0.3s ease;
-        }
-        
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -5px;
-            left: 0;
-            background-color: #FFD700;
-            transition: width 0.3s ease;
-        }
-        
-        .nav-link:hover::after,
-        .nav-link.active::after {
-            width: 100%;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body class="bg-white text-gray-800">
-    <!-- Navigation -->
     <nav class="bg-black text-white fixed w-full top-0 z-50 shadow-lg">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16">
                 <div class="flex items-center">
-                    <h1 class="text-2xl font-bold text-yellow-custom">Rupert Cases</h1>
+                    <h1 class="text-2xl font-bold text-yellow-custom">Rubet Cases</h1>
                 </div>
                 <div class="hidden md:block">
                     <div class="ml-10 flex items-baseline space-x-8">
                         <a href="#home" class="nav-link active text-white hover:text-yellow-custom px-3 py-2">Home</a>
                         <a href="#about" class="nav-link text-white hover:text-yellow-custom px-3 py-2">Quem Somos</a>
                         <a href="#products" class="nav-link text-white hover:text-yellow-custom px-3 py-2">Produtos</a>
+                        <a href="quality.html" class="nav-link text-white hover:text-yellow-custom px-3 py-2">Nossa Qualidade</a>
                         <a href="#contact" class="nav-link text-white hover:text-yellow-custom px-3 py-2">Contato</a>
                         <a href="#feedback" class="nav-link text-white hover:text-yellow-custom px-3 py-2">Feedback</a>
                     </div>
@@ -82,19 +45,18 @@
             </div>
         </div>
         
-        <!-- Mobile menu -->
         <div id="mobile-menu" class="md:hidden hidden bg-black">
             <div class="px-2 pt-2 pb-3 space-y-1">
                 <a href="#home" class="block text-white hover:text-yellow-custom px-3 py-2">Home</a>
                 <a href="#about" class="block text-white hover:text-yellow-custom px-3 py-2">Quem Somos</a>
                 <a href="#products" class="block text-white hover:text-yellow-custom px-3 py-2">Produtos</a>
+                <a href="quality.html" class="block text-white hover:text-yellow-custom px-3 py-2">Nossa Qualidade</a>
                 <a href="#contact" class="block text-white hover:text-yellow-custom px-3 py-2">Contato</a>
                 <a href="#feedback" class="block text-white hover:text-yellow-custom px-3 py-2">Feedback</a>
             </div>
         </div>
     </nav>
 
-    <!-- Home Section -->
     <section id="home" class="min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-800 text-white pt-16">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
             <div class="text-center fade-in">
@@ -134,7 +96,6 @@
         </div>
     </section>
 
-    <!-- About Section -->
     <section id="about" class="min-h-screen bg-white py-20">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16 fade-in">
@@ -146,7 +107,7 @@
                 <div class="fade-in">
                     <h3 class="text-3xl font-bold mb-6 text-black">Nossa História</h3>
                     <p class="text-lg text-gray-700 mb-6">
-                        A Rupert nasceu da paixão pela música e da necessidade de proteger instrumentos valiosos.
+                        A Rubet nasceu da paixão pela música e da necessidade de proteger instrumentos valiosos.
                     </p>
                     <p class="text-lg text-gray-700 mb-6">
                         Nossa missão é oferecer proteção superior para instrumentos musicais, combinando design inovador, materiais de primeira qualidade e preços justos.
@@ -195,7 +156,6 @@
         </div>
     </section>
 
-    <!-- Products Section -->
     <section id="products" class="min-h-screen bg-gray-100 py-20">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16 fade-in">
@@ -206,7 +166,6 @@
                 </p>
             </div>
 
-            <!-- Product Categories -->
             <div class="flex flex-wrap justify-center mb-12 gap-4">
                 <button onclick="filterProducts('all')" class="filter-btn active bg-yellow-custom text-black px-6 py-3 rounded-lg font-semibold hover:bg-yellow-400 transition-colors">
                     Todos
@@ -225,9 +184,7 @@
                 </button>
             </div>
 
-            <!-- Products Grid -->
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Guitar Cases -->
                 <div class="product-card guitar bg-white rounded-lg shadow-lg overflow-hidden fade-in">
                     <div class="h-48 bg-gradient-to-br from-gray-800 to-black flex items-center justify-center">
                         <div class="text-6xl">🎸</div>
@@ -260,7 +217,6 @@
                     </div>
                 </div>
 
-                <!-- Bass Cases -->
                 <div class="product-card bass bg-white rounded-lg shadow-lg overflow-hidden fade-in">
                     <div class="h-48 bg-gradient-to-br from-gray-800 to-black flex items-center justify-center">
                         <div class="text-6xl">🎸</div>
@@ -277,7 +233,6 @@
                     </div>
                 </div>
 
-                <!-- Violin Cases -->
                 <div class="product-card violin bg-white rounded-lg shadow-lg overflow-hidden fade-in">
                     <div class="h-48 bg-gradient-to-br from-gray-700 to-gray-900 flex items-center justify-center">
                         <div class="text-6xl">🎻</div>
@@ -294,7 +249,6 @@
                     </div>
                 </div>
 
-                <!-- Wind Instruments -->
                 <div class="product-card wind bg-white rounded-lg shadow-lg overflow-hidden fade-in">
                     <div class="h-48 bg-gradient-to-br from-gray-800 to-black flex items-center justify-center">
                         <div class="text-6xl">🎺</div>
@@ -330,7 +284,6 @@
         </div>
     </section>
 
-    <!-- Contact Section -->
     <section id="contact" class="min-h-screen bg-black text-white py-20">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16 fade-in">
@@ -342,7 +295,6 @@
             </div>
 
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
-                <!-- Contact Form -->
                 <div class="fade-in">
                     <form id="contact-form" class="space-y-6">
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -378,7 +330,6 @@
                     </form>
                 </div>
 
-                <!-- Contact Info -->
                 <div class="fade-in">
                     <div class="space-y-8">
                         <div class="bg-gray-800 p-6 rounded-lg">
@@ -438,18 +389,16 @@
         </div>
     </section>
 
-    <!-- Feedback Section -->
     <section id="feedback" class="min-h-screen bg-gray-100 py-20">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16 fade-in">
                 <h2 class="text-4xl md:text-5xl font-bold mb-6 text-black">O Que Dizem Nossos Clientes</h2>
                 <div class="w-24 h-1 bg-yellow-custom mx-auto mb-8"></div>
                 <p class="text-xl text-gray-700 max-w-3xl mx-auto">
-                    Veja os depoimentos de músicos que confiam na Rupert para proteger seus instrumentos
+                    Veja os depoimentos de músicos que confiam na Rubet para proteger seus instrumentos
                 </p>
             </div>
 
-            <!-- Testimonials -->
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
                 <div class="bg-white p-6 rounded-lg shadow-lg fade-in">
                     <div class="flex items-center mb-4">
@@ -506,7 +455,6 @@
                 </div>
             </div>
 
-            <!-- Feedback Form -->
             <div class="bg-white p-8 rounded-lg shadow-lg fade-in">
                 <h3 class="text-2xl font-bold mb-6 text-center">Deixe Seu Feedback</h3>
                 <form id="feedback-form" class="max-w-2xl mx-auto">
@@ -542,12 +490,11 @@
         </div>
     </section>
 
-    <!-- Footer -->
     <footer class="bg-black text-white py-12">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
                 <div>
-                    <h3 class="text-2xl font-bold text-yellow-custom mb-4">Rupert Cases</h3>
+                    <h3 class="text-2xl font-bold text-yellow-custom mb-4">Rubet Cases</h3>
                     <p class="text-gray-300 mb-4">Proteção profissional para instrumentos musicais há mais de 15 anos.</p>
                     <div class="flex space-x-4">
                         <a href="#" class="text-gray-300 hover:text-yellow-custom">📘</a>
@@ -583,153 +530,11 @@
                 </div>
             </div>
             <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-300">
-                <p>&copy; 2024 Rupert Cases. Todos os direitos reservados.</p>
+                <p>&copy; 2024 Rubet Cases. Todos os direitos reservados.</p>
             </div>
         </div>
     </footer>
 
-    <script>
-        // JavaScript for Rupert Cases
-
-        // Mobile menu toggle
-        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
-            const mobileMenu = document.getElementById('mobile-menu');
-            mobileMenu.classList.toggle('hidden');
-        });
-
-        // Smooth scrolling for navigation
-        function scrollToSection(sectionId) {
-            document.getElementById(sectionId).scrollIntoView({
-                behavior: 'smooth'
-            });
-        }
-
-        // Navigation link handling
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth'
-                    });
-                    
-                    // Close mobile menu if open
-                    document.getElementById('mobile-menu').classList.add('hidden');
-                    
-                    // Update active nav link
-                    document.querySelectorAll('.nav-link').forEach(link => {
-                        link.classList.remove('active');
-                    });
-                    this.classList.add('active');
-                }
-            });
-        });
-
-        // Product filtering
-        function filterProducts(category) {
-            const products = document.querySelectorAll('.product-card');
-            const buttons = document.querySelectorAll('.filter-btn');
-            
-            // Update button styles
-            buttons.forEach(btn => {
-                btn.classList.remove('active', 'bg-yellow-custom', 'text-black');
-                btn.classList.add('bg-white', 'text-black');
-            });
-            
-            event.target.classList.add('active', 'bg-yellow-custom', 'text-black');
-            event.target.classList.remove('bg-white');
-            
-            // Filter products
-            products.forEach(product => {
-                if (category === 'all' || product.classList.contains(category)) {
-                    product.style.display = 'block';
-                } else {
-                    product.style.display = 'none';
-                }
-            });
-        }
-
-        // Star rating functionality
-        document.querySelectorAll('.star-rating').forEach(star => {
-            star.addEventListener('click', function() {
-                const rating = parseInt(this.dataset.rating);
-                const stars = document.querySelectorAll('.star-rating');
-                
-                stars.forEach((s, index) => {
-                    if (index < rating) {
-                        s.classList.remove('text-gray-300');
-                        s.classList.add('text-yellow-custom');
-                    } else {
-                        s.classList.remove('text-yellow-custom');
-                        s.classList.add('text-gray-300');
-                    }
-                });
-            });
-        });
-
-        // Form submissions
-        document.getElementById('contact-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('Mensagem enviada com sucesso! Entraremos em contato em breve.');
-            this.reset();
-        });
-
-        document.getElementById('feedback-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('Obrigado pelo seu feedback! Sua opinião é muito importante para nós.');
-            this.reset();
-            // Reset star rating
-            document.querySelectorAll('.star-rating').forEach(star => {
-                star.classList.remove('text-yellow-custom');
-                star.classList.add('text-gray-300');
-            });
-        });
-
-        // Scroll animations
-        function handleScrollAnimations() {
-            const elements = document.querySelectorAll('.fade-in');
-            
-            elements.forEach(element => {
-                const elementTop = element.getBoundingClientRect().top;
-                const elementVisible = 150;
-                
-                if (elementTop < window.innerHeight - elementVisible) {
-                    element.classList.add('visible');
-                }
-            });
-        }
-
-        // Active navigation based on scroll
-        function updateActiveNavigation() {
-            const sections = document.querySelectorAll('section');
-            const navLinks = document.querySelectorAll('.nav-link');
-            
-            let current = '';
-            sections.forEach(section => {
-                const sectionTop = section.getBoundingClientRect().top;
-                if (sectionTop <= 100) {
-                    current = section.getAttribute('id');
-                }
-            });
-            
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href') === '#' + current) {
-                    link.classList.add('active');
-                }
-            });
-        }
-
-        // Event listeners
-        window.addEventListener('scroll', function() {
-            handleScrollAnimations();
-            updateActiveNavigation();
-        });
-
-        window.addEventListener('load', function() {
-            handleScrollAnimations();
-        });
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
