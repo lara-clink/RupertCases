@@ -197,6 +197,122 @@ input:focus, textarea:focus, select:focus {
     }
 }
 
+/* ===== MODAL DE PRODUTOS ===== */
+#productModal {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+#productModal:not(.hidden) {
+    opacity: 1;
+}
+
+#productModal .bg-white {
+    transform: scale(0.9) translateY(20px);
+    transition: transform 0.3s ease;
+}
+
+#productModal:not(.hidden) .bg-white {
+    transform: scale(1) translateY(0);
+}
+
+/* Cores dos produtos */
+.color-option {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 3px solid transparent;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.color-option:hover {
+    transform: scale(1.1);
+    border-color: #000;
+}
+
+.color-option.selected {
+    border-color: #000;
+    box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.1);
+}
+
+.color-option::after {
+    content: '✓';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-weight: bold;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.color-option.selected::after {
+    opacity: 1;
+}
+
+/* Preços */
+.price-option {
+    border: 2px solid #e5e7eb;
+    border-radius: 8px;
+    padding: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.price-option:hover {
+    border-color: #000;
+    transform: translateY(-2px);
+}
+
+.price-option.selected {
+    border-color: #000;
+    background-color: #f9fafb;
+}
+
+/* Especificações */
+.spec-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-bottom: 1px solid #f3f4f6;
+}
+
+.spec-item:last-child {
+    border-bottom: none;
+}
+
+/* Animação do modal */
+@keyframes modalSlideIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9) translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+.modal-animate-in {
+    animation: modalSlideIn 0.3s ease forwards;
+}
+
+/* Responsividade do modal */
+@media (max-width: 768px) {
+    #productModal .bg-white {
+        margin: 1rem;
+        max-height: calc(100vh - 2rem);
+    }
+    
+    .color-option {
+        width: 50px;
+        height: 50px;
+    }
+}
+
 /* ===== RESPONSIVIDADE DAS ANIMAÇÕES ===== */
 @media (prefers-reduced-motion: reduce) {
     * {
