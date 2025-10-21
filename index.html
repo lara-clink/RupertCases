@@ -3,41 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rubet - Cases para Instrumentos Musicais</title>
+    <title>Rubet Atelier - Alta-costura para Instrumentos</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        'yellow-custom': '#FFD700',
-                        
-                    }
-                }
-            }
-        }
-    </script>
     <link rel="stylesheet" href="style.css">
 </head>
-<body class="bg-white text-gray-800">
-    <nav class="bg-[#1f2937] text-white fixed w-full top-0 z-50 shadow-lg">
+<body class="bg-white text-black">
+    
+    <nav class="bg-white text-black fixed w-full top-0 z-50 shadow-md">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16">
                 <div class="flex items-center">
-                    <h1 class="text-2xl font-bold text-yellow-custom">Rubet Cases</h1>
+                    <h1 class="text-2xl font-bold tracking-wide">Rubet Atelier</h1>
                 </div>
                 <div class="hidden md:block">
                     <div class="ml-10 flex items-baseline space-x-8">
-                        <a href="#home" class="nav-link active text-white hover:text-yellow-custom px-3 py-2">Home</a>
-                        <a href="#about" class="nav-link text-white hover:text-yellow-custom px-3 py-2">Quem Somos</a>
-                        <a href="#products" class="nav-link text-white hover:text-yellow-custom px-3 py-2">Produtos</a>
-                        <a href="quality.html" class="nav-link text-white hover:text-yellow-custom px-3 py-2">Nossa Qualidade</a>
-                        <a href="#contact" class="nav-link text-white hover:text-yellow-custom px-3 py-2">Contato</a>
-                        <a href="#feedback" class="nav-link text-white hover:text-yellow-custom px-3 py-2">Feedback</a>
+                        <a href="#home" class="nav-link active px-3 py-2">Home</a>
+                        <a href="#about" class="nav-link px-3 py-2">O Atelier</a>
+                        <a href="#products" class="nav-link px-3 py-2">Catálogo</a>
+                        <a href="confecao.html" class="nav-link px-3 py-2">Confecção</a>
+                        <a href="#contact" class="nav-link px-3 py-2">Contato</a>
                     </div>
                 </div>
                 <div class="md:hidden">
-                    <button id="mobile-menu-btn" class="text-white hover:text-yellow-custom">
+                    <button id="mobile-menu-btn" class="text-black">
                         <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
                         </svg>
@@ -46,111 +34,79 @@
             </div>
         </div>
         
-        <div id="mobile-menu" class="md:hidden hidden bg-black">
+        <div id="mobile-menu" class="md:hidden hidden bg-white shadow-lg">
             <div class="px-2 pt-2 pb-3 space-y-1">
-                <a href="#home" class="block text-white hover:text-yellow-custom px-3 py-2">Home</a>
-                <a href="#about" class="block text-white hover:text-yellow-custom px-3 py-2">Quem Somos</a>
-                <a href="#products" class="block text-white hover:text-yellow-custom px-3 py-2">Produtos</a>
-                <a href="quality.html" class="block text-white hover:text-yellow-custom px-3 py-2">Nossa Qualidade</a>
-                <a href="#contact" class="block text-white hover:text-yellow-custom px-3 py-2">Contato</a>
-                <a href="#feedback" class="block text-white hover:text-yellow-custom px-3 py-2">Feedback</a>
+                <a href="#home" class="block text-black px-3 py-2">Home</a>
+                <a href="#about" class="block text-black px-3 py-2">O Atelier</a>
+                <a href="#products" class="block text-black px-3 py-2">Catálogo</a>
+                <a href="confecao.html" class="block text-black px-3 py-2">Confecção</a>
+                <a href="#contact" class="block text-black px-3 py-2">Contato</a>
             </div>
         </div>
     </nav>
 
     <section id="home" 
-    class="min-h-screen text-gray-900 pt-16 bg-cover bg-center bg-no-repeat"
-    style="background-image: linear-gradient(to bottom right, rgba(255, 251, 235, 0.8), rgba(254, 249, 195, 0.9)), url('bannerAmarelo.png');">
-    
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-        <div class="text-center fade-in">
-            <h2 class="text-5xl md:text-7xl font-bold mb-6">
-                Proteja Seus <span class="text-yellow-custom">Instrumentos</span>
-            </h2>
-            <p class="text-xl md:text-2xl mb-8 text-gray-800 max-w-3xl mx-auto">
-                Cases de alta qualidade para guitarras, baixos, violões e muito mais. Proteção profissional para músicos exigentes.
-            </p>
-            <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <button onclick="scrollToSection('products')" class="bg-yellow-custom text-black px-8 py-4 rounded-lg font-semibold text-lg hover:bg-yellow-400 transition-colors">
-                    Ver Produtos
-                </button>
-                <button onclick="scrollToSection('contact')" class="border-2 border-yellow-custom text-yellow-custom px-8 py-4 rounded-lg font-semibold text-lg hover:bg-yellow-custom hover:text-black transition-colors">
-                    Fale Conosco
-                </button>
-            </div>
-        </div>
+        class="min-h-screen text-black pt-16 flex items-center justify-center bg-white"
+        style="background-image: url('placeholder-hero-bg.jpg'); background-size: cover; background-position: center;">
         
-        <div class="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8 fade-in">
-            <div class="text-center p-6 bg-gray-800 rounded-lg">
-                <div class="text-4xl mb-4">🎸</div>
-                <h3 class="text-xl font-semibold mb-2 text-yellow-custom">Guitarras</h3>
-                <p class="text-gray-300">Cases rígidos e semi-rígidos para guitarras elétricas e acústicas</p>
-            </div>
-            <div class="text-center p-6 bg-gray-800 rounded-lg">
-                <div class="text-4xl mb-4">🎻</div>
-                <h3 class="text-xl font-semibold mb-2 text-yellow-custom">Violinos</h3>
-                <p class="text-gray-300">Proteção premium para instrumentos de corda clássicos</p>
-            </div>
-            <div class="text-center p-6 bg-gray-800 rounded-lg">
-                <div class="text-4xl mb-4">🎺</div>
-                <h3 class="text-xl font-semibold mb-2 text-yellow-custom">Sopros</h3>
-                <p class="text-gray-300">Cases especializados para trompetes, saxofones e mais</p>
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center bg-white bg-opacity-80 p-10 rounded">
+            <div class="fade-in">
+                <h2 class="text-5xl md:text-7xl font-light mb-6 tracking-wide">
+                    Alta-costura para seu instrumento.
+                </h2>
+                <p class="text-xl md:text-2xl mb-8 text-gray-700 max-w-3xl mx-auto font-light">
+                    Cases refinados, feitos à mão para músicos que valorizam a proteção e a elegância.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <button onclick="scrollToSection('products')" class="bg-black text-white px-8 py-3 rounded-none font-semibold text-lg hover:bg-gray-800 transition-colors uppercase tracking-wider">
+                        Ver Catálogo
+                    </button>
+                </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
     <section id="about" class="min-h-screen bg-white py-20">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16 fade-in">
-                <h2 class="text-4xl md:text-5xl font-bold mb-6 text-black">Quem Somos</h2>
-                <div class="w-24 h-1 bg-yellow-custom mx-auto mb-8"></div>
+                <h2 class="text-4xl md:text-5xl font-light mb-6 text-black tracking-wide">O Atelier</h2>
+                <div class="w-24 h-px bg-black mx-auto mb-8"></div>
             </div>
             
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                 <div class="fade-in">
-                    <h3 class="text-3xl font-bold mb-6 text-black">Nossa História</h3>
-                    <p class="text-lg text-gray-700 mb-6">
-                        A Rubet nasceu da paixão pela música e da necessidade de proteger instrumentos valiosos.
+                    <h3 class="text-3xl font-normal mb-6 text-black tracking-wide">Nossa História</h3>
+                    <p class="text-lg text-gray-700 mb-6 font-light">
+                        O Rubet Atelier nasceu da paixão pela música e da necessidade de proteger instrumentos valiosos com elegância.
                     </p>
-                    <p class="text-lg text-gray-700 mb-6">
-                        Nossa missão é oferecer proteção superior para instrumentos musicais, combinando design inovador, materiais de primeira qualidade e preços justos.
+                    <p class="text-lg text-gray-700 mb-6 font-light">
+                        Nossa missão é oferecer proteção superior, combinando design refinado, materiais de primeira qualidade e um processo artesanal.
                     </p>
-                    <div class="grid grid-cols-2 gap-6 mt-8">
-                        <div class="text-center p-4 bg-gray-100 rounded-lg">
-                            <div class="text-3xl font-bold text-yellow-custom">15+</div>
-                            <div class="text-gray-700">Anos de Experiência</div>
-                        </div>
-                        <div class="text-center p-4 bg-gray-100 rounded-lg">
-                            <div class="text-3xl font-bold text-yellow-custom">10k+</div>
-                            <div class="text-gray-700">Clientes Satisfeitos</div>
-                        </div>
-                    </div>
                 </div>
                 
                 <div class="fade-in">
-                    <div class="bg-gray-800 p-8 rounded-lg text-white">
-                        <h3 class="text-2xl font-bold mb-6 text-yellow-custom">Nossos Valores</h3>
-                        <div class="space-y-4">
+                    <div class="bg-black p-8 rounded-none text-white">
+                        <h3 class="text-2xl font-normal mb-6 tracking-wide">Nossos Pilares</h3>
+                        <div class="space-y-4 font-light">
                             <div class="flex items-start">
-                                <div class="text-yellow-custom mr-3">✓</div>
+                                <div class="mr-3">✓</div>
                                 <div>
-                                    <h4 class="font-semibold">Qualidade Premium</h4>
-                                    <p class="text-gray-300">Materiais selecionados e acabamento impecável</p>
+                                    <h4 class="font-semibold tracking-wide">Qualidade Artesanal</h4>
+                                    <p class="text-gray-300">Materiais selecionados e acabamento impecável.</p>
                                 </div>
                             </div>
                             <div class="flex items-start">
-                                <div class="text-yellow-custom mr-3">✓</div>
+                                <div class="mr-3">✓</div>
                                 <div>
-                                    <h4 class="font-semibold">Atendimento Personalizado</h4>
-                                    <p class="text-gray-300">Cada cliente é único e merece atenção especial</p>
+                                    <h4 class="font-semibold tracking-wide">Atendimento Personalizado</h4>
+                                    <p class="text-gray-300">Cada cliente é único e merece atenção especial.</p>
                                 </div>
                             </div>
                             <div class="flex items-start">
-                                <div class="text-yellow-custom mr-3">✓</div>
+                                <div class="mr-3">✓</div>
                                 <div>
-                                    <h4 class="font-semibold">Inovação Constante</h4>
-                                    <p class="text-gray-300">Sempre buscando novas soluções e tecnologias</p>
+                                    <h4 class="font-semibold tracking-wide">Design Atemporal</h4>
+                                    <p class="text-gray-300">Buscamos soluções sóbrias e elegantes.</p>
                                 </div>
                             </div>
                         </div>
@@ -163,138 +119,109 @@
     <section id="products" class="min-h-screen bg-gray-100 py-20">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16 fade-in">
-                <h2 class="text-4xl md:text-5xl font-bold mb-6 text-black">Nossos Produtos</h2>
-                <div class="w-24 h-1 bg-yellow-custom mx-auto mb-8"></div>
-                <p class="text-xl text-gray-700 max-w-3xl mx-auto">
-                    Descubra nossa linha completa de cases profissionais para todos os tipos de instrumentos musicais
+                <h2 class="text-4xl md:text-5xl font-light mb-6 text-black tracking-wide">Catálogo</h2>
+                <div class="w-24 h-px bg-black mx-auto mb-8"></div>
+                <p class="text-xl text-gray-700 max-w-3xl mx-auto font-light">
+                    Coleção 2025
                 </p>
             </div>
 
-            <div class="flex flex-wrap justify-center mb-12 gap-4">
-                <button onclick="filterProducts('all')" class="filter-btn active bg-yellow-custom text-black px-6 py-3 rounded-lg font-semibold hover:bg-yellow-400 transition-colors">
-                    Todos
-                </button>
-                <button onclick="filterProducts('guitar')" class="filter-btn bg-white text-black px-6 py-3 rounded-lg font-semibold hover:bg-gray-200 transition-colors">
-                    Guitarras
-                </button>
-                <button onclick="filterProducts('bass')" class="filter-btn bg-white text-black px-6 py-3 rounded-lg font-semibold hover:bg-gray-200 transition-colors">
-                    Baixos
-                </button>
-                <button onclick="filterProducts('violin')" class="filter-btn bg-white text-black px-6 py-3 rounded-lg font-semibold hover:bg-gray-200 transition-colors">
-                    Violinos
-                </button>
-                <button onclick="filterProducts('wind')" class="filter-btn bg-white text-black px-6 py-3 rounded-lg font-semibold hover:bg-gray-200 transition-colors">
-                    Sopros
-                </button>
-            </div>
-
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="product-card guitar bg-white rounded-lg shadow-lg overflow-hidden fade-in">
-                    <div class="h-48 bg-gradient-to-br from-gray-800 to-black flex items-center justify-center">
-                        <div class="text-6xl">🎸</div>
-                    </div>
+                
+                <div class="product-card bg-white rounded-none shadow-lg overflow-hidden fade-in">
+                    <img src="https://placehold.co/600x400/000000/FFFFFF?text=Rubet+Atelier" alt="Imagem do Case" class="w-full h-64 object-cover">
                     <div class="p-6">
-                        <h3 class="text-xl font-bold mb-2">Case Rígido Guitarra</h3>
-                        <p class="text-gray-600 mb-4">Proteção máxima com interior acolchoado e fechos de segurança</p>
+                        <h3 class="text-xl font-semibold mb-2 tracking-wide">Case Rígido Guitarra</h3>
+                        <p class="text-gray-600 mb-4 font-light">Proteção máxima com interior em veludo e fechos de segurança.</p>
                         <div class="flex justify-between items-center">
-                            <span class="text-2xl font-bold text-yellow-custom">R$ 299,90</span>
-                            <button class="bg-black text-white px-4 py-2 rounded hover:bg-gray-800 transition-colors">
+                            <span class="text-2xl font-semibold text-black">R$ 299,90</span>
+                            <button class="bg-black text-white px-4 py-2 rounded-none hover:bg-gray-800 transition-colors uppercase text-sm tracking-wider">
                                 Comprar
                             </button>
                         </div>
                     </div>
                 </div>
 
-                <div class="product-card guitar bg-white rounded-lg shadow-lg overflow-hidden fade-in">
-                    <div class="h-48 bg-gradient-to-br from-gray-700 to-gray-900 flex items-center justify-center">
-                        <div class="text-6xl">🎸</div>
-                    </div>
+                <div class="product-card bg-white rounded-none shadow-lg overflow-hidden fade-in">
+                    <img src="https://placehold.co/600x400/000000/FFFFFF?text=Rubet+Atelier" alt="Imagem do Case" class="w-full h-64 object-cover">
                     <div class="p-6">
-                        <h3 class="text-xl font-bold mb-2">Case Semi-Rígido Guitarra</h3>
-                        <p class="text-gray-600 mb-4">Leveza e proteção para o dia a dia do músico</p>
+                        <h3 class="text-xl font-semibold mb-2 tracking-wide">Case Semi-Rígido Guitarra</h3>
+                        <p class="text-gray-600 mb-4 font-light">Leveza e proteção para o dia a dia.</p>
                         <div class="flex justify-between items-center">
-                            <span class="text-2xl font-bold text-yellow-custom">R$ 189,90</span>
-                            <button class="bg-black text-white px-4 py-2 rounded hover:bg-gray-800 transition-colors">
+                            <span class="text-2xl font-semibold text-black">R$ 189,90</span>
+                            <button class="bg-black text-white px-4 py-2 rounded-none hover:bg-gray-800 transition-colors uppercase text-sm tracking-wider">
                                 Comprar
                             </button>
                         </div>
                     </div>
                 </div>
 
-                <div class="product-card bass bg-white rounded-lg shadow-lg overflow-hidden fade-in">
-                    <div class="h-48 bg-gradient-to-br from-gray-800 to-black flex items-center justify-center">
-                        <div class="text-6xl">🎸</div>
-                    </div>
+                <div class="product-card bg-white rounded-none shadow-lg overflow-hidden fade-in">
+                    <img src="https://placehold.co/600x400/000000/FFFFFF?text=Rubet+Atelier" alt="Imagem do Case" class="w-full h-64 object-cover">
                     <div class="p-6">
-                        <h3 class="text-xl font-bold mb-2">Case Rígido Baixo</h3>
-                        <p class="text-gray-600 mb-4">Especialmente projetado para contrabaixos de 4 e 5 cordas</p>
+                        <h3 class="text-xl font-semibold mb-2 tracking-wide">Case Rígido Baixo</h3>
+                        <p class="text-gray-600 mb-4 font-light">Projetado para contrabaixos de 4 e 5 cordas.</p>
                         <div class="flex justify-between items-center">
-                            <span class="text-2xl font-bold text-yellow-custom">R$ 349,90</span>
-                            <button class="bg-black text-white px-4 py-2 rounded hover:bg-gray-800 transition-colors">
+                            <span class="text-2xl font-semibold text-black">R$ 349,90</span>
+                            <button class="bg-black text-white px-4 py-2 rounded-none hover:bg-gray-800 transition-colors uppercase text-sm tracking-wider">
                                 Comprar
                             </button>
                         </div>
                     </div>
                 </div>
 
-                <div class="product-card violin bg-white rounded-lg shadow-lg overflow-hidden fade-in">
-                    <div class="h-48 bg-gradient-to-br from-gray-700 to-gray-900 flex items-center justify-center">
-                        <div class="text-6xl">🎻</div>
-                    </div>
+                <div class="product-card bg-white rounded-none shadow-lg overflow-hidden fade-in">
+                    <img src="https://placehold.co/600x400/000000/FFFFFF?text=Rubet+Atelier" alt="Imagem do Case" class="w-full h-64 object-cover">
                     <div class="p-6">
-                        <h3 class="text-xl font-bold mb-2">Case Premium Violino</h3>
-                        <p class="text-gray-600 mb-4">Elegância e proteção para instrumentos clássicos</p>
+                        <h3 class="text-xl font-semibold mb-2 tracking-wide">Case Premium Violino</h3>
+                        <p class="text-gray-600 mb-4 font-light">Elegância e proteção para instrumentos clássicos.</p>
                         <div class="flex justify-between items-center">
-                            <span class="text-2xl font-bold text-yellow-custom">R$ 459,90</span>
-                            <button class="bg-black text-white px-4 py-2 rounded hover:bg-gray-800 transition-colors">
+                            <span class="text-2xl font-semibold text-black">R$ 459,90</span>
+                            <button class="bg-black text-white px-4 py-2 rounded-none hover:bg-gray-800 transition-colors uppercase text-sm tracking-wider">
                                 Comprar
                             </button>
                         </div>
                     </div>
                 </div>
 
-                <div class="product-card wind bg-white rounded-lg shadow-lg overflow-hidden fade-in">
-                    <div class="h-48 bg-gradient-to-br from-gray-800 to-black flex items-center justify-center">
-                        <div class="text-6xl">🎺</div>
-                    </div>
+                <div class="product-card bg-white rounded-none shadow-lg overflow-hidden fade-in">
+                    <img src="https://placehold.co/600x400/000000/FFFFFF?text=Rubet+Atelier" alt="Imagem do Case" class="w-full h-64 object-cover">
                     <div class="p-6">
-                        <h3 class="text-xl font-bold mb-2">Case Trompete</h3>
-                        <p class="text-gray-600 mb-4">Proteção especializada para instrumentos de sopro</p>
+                        <h3 class="text-xl font-semibold mb-2 tracking-wide">Case Trompete</h3>
+                        <p class="text-gray-600 mb-4 font-light">Proteção especializada para instrumentos de sopro.</p>
                         <div class="flex justify-between items-center">
-                            <span class="text-2xl font-bold text-yellow-custom">R$ 279,90</span>
-                            <button class="bg-black text-white px-4 py-2 rounded hover:bg-gray-800 transition-colors">
+                            <span class="text-2xl font-semibold text-black">R$ 279,90</span>
+                            <button class="bg-black text-white px-4 py-2 rounded-none hover:bg-gray-800 transition-colors uppercase text-sm tracking-wider">
                                 Comprar
                             </button>
                         </div>
                     </div>
                 </div>
 
-                <div class="product-card wind bg-white rounded-lg shadow-lg overflow-hidden fade-in">
-                    <div class="h-48 bg-gradient-to-br from-gray-700 to-gray-900 flex items-center justify-center">
-                        <div class="text-6xl">🎷</div>
-                    </div>
+                <div class="product-card bg-white rounded-none shadow-lg overflow-hidden fade-in">
+                    <img src="https://placehold.co/600x400/000000/FFFFFF?text=Rubet+Atelier" alt="Imagem do Case" class="w-full h-64 object-cover">
                     <div class="p-6">
-                        <h3 class="text-xl font-bold mb-2">Case Saxofone</h3>
-                        <p class="text-gray-600 mb-4">Design ergonômico com compartimentos organizadores</p>
+                        <h3 class="text-xl font-semibold mb-2 tracking-wide">Case Saxofone</h3>
+                        <p class="text-gray-600 mb-4 font-light">Design ergonômico com compartimentos.</p>
                         <div class="flex justify-between items-center">
-                            <span class="text-2xl font-bold text-yellow-custom">R$ 399,90</span>
-                            <button class="bg-black text-white px-4 py-2 rounded hover:bg-gray-800 transition-colors">
+                            <span class="text-2xl font-semibold text-black">R$ 399,90</span>
+                            <button class="bg-black text-white px-4 py-2 rounded-none hover:bg-gray-800 transition-colors uppercase text-sm tracking-wider">
                                 Comprar
                             </button>
                         </div>
                     </div>
                 </div>
-            </div>
+                </div>
         </div>
     </section>
 
-    <section id="contact" class="min-h-screen bg-gray-800 text-white py-20">
+    <section id="contact" class="min-h-screen bg-black text-white py-20">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16 fade-in">
-                <h2 class="text-4xl md:text-5xl font-bold mb-6">Entre em Contato</h2>
-                <div class="w-24 h-1 bg-yellow-custom mx-auto mb-8"></div>
-                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
-                    Tem dúvidas sobre nossos produtos? Precisa de um orçamento personalizado? Fale conosco!
+                <h2 class="text-4xl md:text-5xl font-light mb-6 tracking-wide">Entre em Contato</h2>
+                <div class="w-24 h-px bg-white mx-auto mb-8"></div>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto font-light">
+                    Tem dúvidas? Precisa de um orçamento personalizado? Fale conosco.
                 </p>
             </div>
 
@@ -303,75 +230,68 @@
                     <form id="contact-form" class="space-y-6">
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <div>
-                                <label class="block text-sm font-medium mb-2">Nome</label>
-                                <input type="text" required class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:ring-2 focus:ring-yellow-custom focus:border-transparent text-white">
+                                <label class="block text-sm font-medium mb-2 uppercase tracking-wider">Nome</label>
+                                <input type="text" required class="w-full px-4 py-3 bg-black border border-gray-700 rounded-none focus:ring-2 focus:ring-white focus:border-transparent text-white">
                             </div>
                             <div>
-                                <label class="block text-sm font-medium mb-2">Email</label>
-                                <input type="email" required class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:ring-2 focus:ring-yellow-custom focus:border-transparent text-white">
+                                <label class="block text-sm font-medium mb-2 uppercase tracking-wider">Email</label>
+                                <input type="email" required class="w-full px-4 py-3 bg-black border border-gray-700 rounded-none focus:ring-2 focus:ring-white focus:border-transparent text-white">
                             </div>
                         </div>
                         <div>
-                            <label class="block text-sm font-medium mb-2">Telefone</label>
-                            <input type="tel" class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:ring-2 focus:ring-yellow-custom focus:border-transparent text-white">
+                            <label class="block text-sm font-medium mb-2 uppercase tracking-wider">Telefone</label>
+                            <input type="tel" class="w-full px-4 py-3 bg-black border border-gray-700 rounded-none focus:ring-2 focus:ring-white focus:border-transparent text-white">
                         </div>
                         <div>
-                            <label class="block text-sm font-medium mb-2">Assunto</label>
-                            <select class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:ring-2 focus:ring-yellow-custom focus:border-transparent text-white">
+                            <label class="block text-sm font-medium mb-2 uppercase tracking-wider">Assunto</label>
+                            <select class="w-full px-4 py-3 bg-black border border-gray-700 rounded-none focus:ring-2 focus:ring-white focus:border-transparent text-white">
                                 <option>Dúvidas sobre produtos</option>
                                 <option>Orçamento personalizado</option>
-                                <option>Suporte técnico</option>
+                                <option>Suporte</option>
                                 <option>Outros</option>
                             </select>
                         </div>
                         <div>
-                            <label class="block text-sm font-medium mb-2">Mensagem</label>
-                            <textarea rows="5" required class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:ring-2 focus:ring-yellow-custom focus:border-transparent text-white"></textarea>
+                            <label class="block text-sm font-medium mb-2 uppercase tracking-wider">Mensagem</label>
+                            <textarea rows="5" required class="w-full px-4 py-3 bg-black border border-gray-700 rounded-none focus:ring-2 focus:ring-white focus:border-transparent text-white"></textarea>
                         </div>
-                        <button type="submit" class="w-full bg-yellow-custom text-black py-3 px-6 rounded-lg font-semibold text-lg hover:bg-yellow-400 transition-colors">
+                        <button type="submit" class="w-full bg-white text-black py-3 px-6 rounded-none font-semibold text-lg hover:bg-gray-300 transition-colors uppercase tracking-wider">
                             Enviar Mensagem
                         </button>
                     </form>
                 </div>
 
                 <div class="fade-in">
-                    <div class="space-y-8">
-                        <div class="bg-gray-800 p-6 rounded-lg">
-                            <h3 class="text-2xl font-bold mb-6 text-yellow-custom">Informações de Contato</h3>
+                    <div class="space-y-8 font-light">
+                        <div class="p-6 rounded-none">
+                            <h3 class="text-2xl font-normal mb-6 tracking-wide">Informações de Contato</h3>
                             <div class="space-y-4">
                                 <div class="flex items-center">
-                                    <div class="text-yellow-custom mr-4">📍</div>
+                                    <div class="mr-4">📍</div>
                                     <div>
-                                        <h4 class="font-semibold">Endereço</h4>
+                                        <h4 class="font-semibold tracking-wide">Endereço</h4>
                                         <p class="text-gray-300">Rua da Música, 123 - Centro<br>São Paulo, SP - 01234-567</p>
                                     </div>
                                 </div>
                                 <div class="flex items-center">
-                                    <div class="text-yellow-custom mr-4">📞</div>
+                                    <div class="mr-4">📞</div>
                                     <div>
-                                        <h4 class="font-semibold">Telefone</h4>
+                                        <h4 class="font-semibold tracking-wide">Telefone</h4>
                                         <p class="text-gray-300">(11) 1234-5678</p>
                                     </div>
                                 </div>
                                 <div class="flex items-center">
-                                    <div class="text-yellow-custom mr-4">📱</div>
+                                    <div class="mr-4">✉️</div>
                                     <div>
-                                        <h4 class="font-semibold">WhatsApp</h4>
-                                        <p class="text-gray-300">(11) 99999-8888</p>
-                                    </div>
-                                </div>
-                                <div class="flex items-center">
-                                    <div class="text-yellow-custom mr-4">✉️</div>
-                                    <div>
-                                        <h4 class="font-semibold">Email</h4>
-                                        <p class="text-gray-300">contato@musiccasepro.com.br</p>
+                                        <h4 class="font-semibold tracking-wide">Email</h4>
+                                        <p class="text-gray-300">contato@rubetatelier.com.br</p>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="bg-gray-800 p-6 rounded-lg">
-                            <h3 class="text-xl font-bold mb-4 text-yellow-custom">Horário de Funcionamento</h3>
+                        <div class="p-6 rounded-none">
+                            <h3 class="text-xl font-normal mb-4 tracking-wide">Horário de Funcionamento</h3>
                             <div class="space-y-2 text-gray-300">
                                 <div class="flex justify-between">
                                     <span>Segunda a Sexta:</span>
@@ -381,10 +301,6 @@
                                     <span>Sábado:</span>
                                     <span>8h às 14h</span>
                                 </div>
-                                <div class="flex justify-between">
-                                    <span>Domingo:</span>
-                                    <span>Fechado</span>
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -393,148 +309,46 @@
         </div>
     </section>
 
-    <section id="feedback" class="min-h-screen bg-gray-100 py-20">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16 fade-in">
-                <h2 class="text-4xl md:text-5xl font-bold mb-6 text-black">O Que Dizem Nossos Clientes</h2>
-                <div class="w-24 h-1 bg-yellow-custom mx-auto mb-8"></div>
-                <p class="text-xl text-gray-700 max-w-3xl mx-auto">
-                    Veja os depoimentos de músicos que confiam na Rubet para proteger seus instrumentos
-                </p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-                <div class="bg-white p-6 rounded-lg shadow-lg fade-in">
-                    <div class="flex items-center mb-4">
-                        <div class="text-yellow-custom text-xl">⭐⭐⭐⭐⭐</div>
-                    </div>
-                    <p class="text-gray-700 mb-4 italic">
-                        "Comprei um case rígido para minha guitarra e estou impressionado com a qualidade. Proteção total e acabamento perfeito!"
-                    </p>
-                    <div class="flex items-center">
-                        <div class="w-12 h-12 bg-gray-300 rounded-full flex items-center justify-center mr-4">
-                            <span class="text-xl">🎸</span>
-                        </div>
-                        <div>
-                            <h4 class="font-semibold">Carlos Silva</h4>
-                            <p class="text-gray-600 text-sm">Guitarrista</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="bg-white p-6 rounded-lg shadow-lg fade-in">
-                    <div class="flex items-center mb-4">
-                        <div class="text-yellow-custom text-xl">⭐⭐⭐⭐⭐</div>
-                    </div>
-                    <p class="text-gray-700 mb-4 italic">
-                        "Atendimento excepcional e produto de primeira qualidade. Meu violino está sempre protegido!"
-                    </p>
-                    <div class="flex items-center">
-                        <div class="w-12 h-12 bg-gray-300 rounded-full flex items-center justify-center mr-4">
-                            <span class="text-xl">🎻</span>
-                        </div>
-                        <div>
-                            <h4 class="font-semibold">Ana Costa</h4>
-                            <p class="text-gray-600 text-sm">Violinista</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="bg-white p-6 rounded-lg shadow-lg fade-in">
-                    <div class="flex items-center mb-4">
-                        <div class="text-yellow-custom text-xl">⭐⭐⭐⭐⭐</div>
-                    </div>
-                    <p class="text-gray-700 mb-4 italic">
-                        "Já comprei vários cases aqui. Sempre produtos de qualidade e preços justos. Recomendo!"
-                    </p>
-                    <div class="flex items-center">
-                        <div class="w-12 h-12 bg-gray-300 rounded-full flex items-center justify-center mr-4">
-                            <span class="text-xl">🎺</span>
-                        </div>
-                        <div>
-                            <h4 class="font-semibold">Roberto Santos</h4>
-                            <p class="text-gray-600 text-sm">Trompetista</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="bg-white p-8 rounded-lg shadow-lg fade-in">
-                <h3 class="text-2xl font-bold mb-6 text-center">Deixe Seu Feedback</h3>
-                <form id="feedback-form" class="max-w-2xl mx-auto">
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-                        <div>
-                            <label class="block text-sm font-medium mb-2 text-gray-700">Nome</label>
-                            <input type="text" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-custom focus:border-transparent">
-                        </div>
-                        <div>
-                            <label class="block text-sm font-medium mb-2 text-gray-700">Email</label>
-                            <input type="email" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-custom focus:border-transparent">
-                        </div>
-                    </div>
-                    <div class="mb-6">
-                        <label class="block text-sm font-medium mb-2 text-gray-700">Avaliação</label>
-                        <div class="flex space-x-2">
-                            <button type="button" class="star-rating text-3xl text-gray-300 hover:text-yellow-custom" data-rating="1">⭐</button>
-                            <button type="button" class="star-rating text-3xl text-gray-300 hover:text-yellow-custom" data-rating="2">⭐</button>
-                            <button type="button" class="star-rating text-3xl text-gray-300 hover:text-yellow-custom" data-rating="3">⭐</button>
-                            <button type="button" class="star-rating text-3xl text-gray-300 hover:text-yellow-custom" data-rating="4">⭐</button>
-                            <button type="button" class="star-rating text-3xl text-gray-300 hover:text-yellow-custom" data-rating="5">⭐</button>
-                        </div>
-                    </div>
-                    <div class="mb-6">
-                        <label class="block text-sm font-medium mb-2 text-gray-700">Seu Depoimento</label>
-                        <textarea rows="4" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-custom focus:border-transparent" placeholder="Conte-nos sobre sua experiência..."></textarea>
-                    </div>
-                    <button type="submit" class="w-full bg-yellow-custom text-black py-3 px-6 rounded-lg font-semibold text-lg hover:bg-yellow-400 transition-colors">
-                        Enviar Feedback
-                    </button>
-                </form>
-            </div>
-        </div>
-    </section>
-
-    <footer class="bg-gray-800 text-white py-12">
+    <footer class="bg-black text-white py-12">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
                 <div>
-                    <h3 class="text-2xl font-bold text-yellow-custom mb-4">Rubet Cases</h3>
-                    <p class="text-gray-300 mb-4">Proteção profissional para instrumentos musicais há mais de 15 anos.</p>
+                    <h3 class="text-2xl font-bold tracking-wide mb-4">Rubet Atelier</h3>
+                    <p class="text-gray-300 mb-4 font-light">Proteção artesanal para instrumentos musicais.</p>
                     <div class="flex space-x-4">
-                        <a href="#" class="text-gray-300 hover:text-yellow-custom">📘</a>
-                        <a href="#" class="text-gray-300 hover:text-yellow-custom">📷</a>
-                        <a href="#" class="text-gray-300 hover:text-yellow-custom">🐦</a>
+                        <a href="#" class="text-gray-300 hover:text-white">📘</a>
+                        <a href="#" class="text-gray-300 hover:text-white">📷</a>
                     </div>
                 </div>
                 <div>
-                    <h4 class="text-lg font-semibold mb-4">Produtos</h4>
-                    <ul class="space-y-2 text-gray-300">
-                        <li><a href="#products" class="hover:text-yellow-custom">Cases para Guitarra</a></li>
-                        <li><a href="#products" class="hover:text-yellow-custom">Cases para Baixo</a></li>
-                        <li><a href="#products" class="hover:text-yellow-custom">Cases para Violino</a></li>
-                        <li><a href="#products" class="hover:text-yellow-custom">Cases para Sopros</a></li>
+                    <h4 class="text-lg font-semibold mb-4 uppercase tracking-wider">Produtos</h4>
+                    <ul class="space-y-2 text-gray-300 font-light">
+                        <li><a href="#products" class="hover:text-white">Cases para Guitarra</a></li>
+                        <li><a href="#products" class="hover:text-white">Cases para Baixo</a></li>
+                        <li><a href="#products" class="hover:text-white">Cases para Violino</a></li>
+                        <li><a href="#products" class="hover:text-white">Cases para Sopros</a></li>
                     </ul>
                 </div>
                 <div>
-                    <h4 class="text-lg font-semibold mb-4">Empresa</h4>
-                    <ul class="space-y-2 text-gray-300">
-                        <li><a href="#about" class="hover:text-yellow-custom">Quem Somos</a></li>
-                        <li><a href="#contact" class="hover:text-yellow-custom">Contato</a></li>
-                        <li><a href="#feedback" class="hover:text-yellow-custom">Feedback</a></li>
-                        <li><a href="#" class="hover:text-yellow-custom">Política de Privacidade</a></li>
+                    <h4 class="text-lg font-semibold mb-4 uppercase tracking-wider">Empresa</h4>
+                    <ul class="space-y-2 text-gray-300 font-light">
+                        <li><a href="#about" class="hover:text-white">O Atelier</a></li>
+                        <li><a href="#contact" class="hover:text-white">Contato</a></li>
+                        <li><a href="confecao.html" class="hover:text-white">Confecção</a></li>
+                        <li><a href="#" class="hover:text-white">Política de Privacidade</a></li>
                     </ul>
                 </div>
                 <div>
-                    <h4 class="text-lg font-semibold mb-4">Contato</h4>
-                    <div class="space-y-2 text-gray-300">
+                    <h4 class="text-lg font-semibold mb-4 uppercase tracking-wider">Contato</h4>
+                    <div class="space-y-2 text-gray-300 font-light">
                         <p>📍 Rua da Música, 123 - Centro</p>
                         <p>📞 (11) 1234-5678</p>
-                        <p>✉️ contato@musiccasepro.com.br</p>
+                        <p>✉️ contato@rubetatelier.com.br</p>
                     </div>
                 </div>
             </div>
-            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-300">
-                <p>&copy; 2024 Rubet Cases. Todos os direitos reservados.</p>
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-300 font-light">
+                <p>&copy; 2024 Rubet Atelier. Todos os direitos reservados.</p>
             </div>
         </div>
     </footer>

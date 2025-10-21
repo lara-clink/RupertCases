@@ -1,7 +1,9 @@
-/* Custom CSS for Rubet Cases */
+/* Custom CSS for Rubet Atelier */
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500&display=swap');
 
 body {
     box-sizing: border-box;
+    font-family: 'Oswald', sans-serif; /* Fonte minimalista e alongada */
 }
 
 .fade-in {
@@ -18,20 +20,26 @@ body {
 .nav-link {
     position: relative;
     transition: color 0.3s ease;
+    letter-spacing: 0.5px; /* Leve espaçamento para refinamento */
 }
 
 .nav-link::after {
     content: '';
     position: absolute;
     width: 0;
-    height: 2px;
+    height: 1px; /* Linha mais fina */
     bottom: -5px;
     left: 0;
-    background-color: #FFD700;
+    background-color: #000; /* Preto em vez de amarelo */
     transition: width 0.3s ease;
 }
 
 .nav-link:hover::after,
 .nav-link.active::after {
     width: 100%;
+}
+
+/* Garante que o input de formulário também use a fonte */
+input, textarea, select, button {
+    font-family: 'Oswald', sans-serif;
 }
