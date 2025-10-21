@@ -356,6 +356,8 @@ class ProductModalManager {
         const product = this.products[productId];
         if (!product || !this.modal) return;
 
+        this.product = product;
+
         this.selectedColor = null;
         this.selectedPrice = null;
 
@@ -440,9 +442,20 @@ class ProductModalManager {
     }
 
     finalizePurchase() {
-        const productName = document.getElementById('modalProductName').textContent;
-        const message = `Olá! Tenho interesse no ${productName}.`;
-        window.open(`https://wa.me/5511999999999?text=${encodeURIComponent(message)}`, '_blank');
+        if (!this.product) return;
+
+        const produto = {
+            nome: this.product.name,
+            preco: this.selectedPrice !== null ? {
+                tipo: this.product.prices[this.selectedPrice].type,
+                valor: this.product.prices[this.selectedPrice].price
+            } : null,
+            cor: this.selectedColor !== null ? {
+                nome: this.product.colors[this.selectedColor].name
+            } : null
+        };
+
+        comprarPeloWhatsApp(produto);
         this.closeModal();
     }
 }
@@ -488,3 +501,38 @@ async function loadProducts() {
 }
 
 loadProducts();
+
+
+// ===== REDIRECIONAR PARA WHATSAPP =====
+/**
+ * Envia uma mensagem para o WhatsApp com as informações do produto selecionado.
+ * @param {Object} produto - Objeto contendo as informações do produto.
+ * @param {string} produto.nome - Nome do produto.
+ * @param {Object} [produto.preco] - Objeto com informações de preço selecionado.
+ * @param {string} [produto.preco.tipo] - Tipo do preço (ex: "Premium", "Básico").
+ * @param {string} [produto.preco.valor] - Valor do preço (ex: "R$ 399,90").
+ * @param {Object} [produto.cor] - Objeto com a cor selecionada.
+ * @param {string} [produto.cor.nome] - Nome da cor (ex: "Preto").
+ * @param {string} [produto.frete] - Valor do frete (opcional).
+ */
+function comprarPeloWhatsApp(produto) {
+  const numeroVendedor = "5541996486800"; // número da empresa
+
+  // Monta a mensagem
+  let mensagem = `Olá! Tenho interesse no produto *${produto.nome}*`;
+
+  if (produto.preco) {
+    mensagem += `\n• Versão: ${produto.preco.tipo} (${produto.preco.valor})`;
+  }
+  if (produto.cor) {
+    mensagem += `\n• Cor: ${produto.cor.nome}`;
+  }
+  if (produto.frete) {
+    mensagem += `\n• Frete: ${produto.frete}`;
+  }
+
+  mensagem += `\nGostaria de saber mais detalhes e finalizar a compra.`;
+
+  const linkWhatsApp = `https://api.whatsapp.com/send?phone=${numeroVendedor}&text=${encodeURIComponent(mensagem)}`;
+  window.open(linkWhatsApp, "_blank");
+}
