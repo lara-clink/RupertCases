@@ -74,7 +74,7 @@ body {
     height: 1px;
     bottom: -5px;
     left: 0;
-    background-color: #000;
+    background-color: #ffffff;
     transition: width 0.3s ease;
 }
 
@@ -85,6 +85,75 @@ body {
 .nav-link:hover::after,
 .nav-link.active::after {
     width: 100%;
+}
+
+
+/* Banner com 3 colunas verticais coloridas */
+.home-banner {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #fff;
+    background: linear-gradient(
+        to right,
+        #83736a 0%,    /* esquerda */
+        #83736a 33.33%,
+        #63564e 33.33%, /* meio */
+        #63564e 66.66%,
+        #a2958e 66.66%, /* direita */
+        #a2958e 100%
+    );
+    position: relative;
+    overflow: hidden;
+}
+
+/* Fundo escuro semi-transparente atrás do texto */
+.banner-content {
+
+    padding: 3rem 2rem;
+    border-radius: 0.5rem;
+    max-width: 800px;
+}
+
+/* Título */
+.banner-content h2 {
+    font-size: 3rem;
+    font-weight: 300;
+    margin-bottom: 1rem;
+}
+
+/* Texto */
+.banner-content p {
+    font-size: 1.25rem;
+    font-weight: 300;
+    margin-bottom: 1.5rem;
+}
+
+/* Botão */
+.banner-content button {
+    background-color: #000;
+    color: #fff;
+    padding: 0.75rem 2rem;
+    border: none;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.banner-content button:hover {
+    background-color: #333;
+}
+
+/* Nota inferior */
+.banner-note {
+    margin-top: 2rem;
+    font-size: 1rem;
+    font-style: italic;
+    color: #e0d8d0;
 }
 
 /* ===== ANIMAÇÕES DOS CARDS DE PRODUTOS ===== */
