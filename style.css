@@ -88,7 +88,7 @@ body {
 }
 
 
-/* Banner com 3 colunas verticais coloridas */
+/* Banner - ALTERADO para Imagem + Gradiente P&B Animado */
 .home-banner {
     min-height: 100vh;
     display: flex;
@@ -96,15 +96,29 @@ body {
     justify-content: center;
     text-align: center;
     color: #fff;
-    background: linear-gradient(
-        to right,
-        #83736a 0%,    /* esquerda */
-        #83736a 33.33%,
-        #63564e 33.33%, /* meio */
-        #63564e 66.66%,
-        #a2958e 66.66%, /* direita */
-        #a2958e 100%
-    );
+    
+    /* ===== ALTERAÇÃO SOLICITADA (Imagem + Gradiente) ===== */
+    /* Camada 1 (Superior): Sua imagem transparente (substitua a URL) */
+    /* Camada 2 (Inferior): O gradiente animado */
+    background-image: url('/img/teste.png'), 
+                      linear-gradient(
+                        135deg, 
+                        #000000, #222222, #dddddd, #222222, #000000
+                      );
+
+    /* ===== CORREÇÃO ===== */
+    /* Tamanhos: '200px' (para imagem) e '400%' (para gradiente). Ajuste 200px se necessário */
+    background-size: auto, 400% 400%;
+    
+    /* Repete a imagem (padrão), não repete o gradiente */
+    background-repeat: no-repeat, no-repeat;
+    
+    /* Posição inicial: (0 0) para imagem, (0% 50%) para gradiente */
+    background-position: 0% 0%, 0% 50%;
+    
+    /* A animação agora vai controlar as duas posições de fundo */
+    animation: animatedGradient 15s ease infinite;
+    
     position: relative;
     overflow: hidden;
 }
@@ -263,6 +277,22 @@ input:focus, textarea:focus, select:focus {
     to {
         opacity: 1;
         transform: translateY(0);
+    }
+}
+
+/* ===== KEYFRAME DO GRADIENTE P&B (AJUSTADO) ===== */
+@keyframes animatedGradient {
+    0% {
+        /* Posição (Imagem Estática, Gradiente Móvel) */
+        background-position: 0% 0%, 0% 50%;
+    }
+    50% {
+        /* Mantém imagem estática (0% 0%), move gradiente (100% 50%) */
+        background-position: 0% 0%, 100% 50%;
+    }
+    100% {
+        /* Retorna à posição inicial */
+        background-position: 0% 0%, 0% 50%;
     }
 }
 
