@@ -420,3 +420,25 @@ input:focus, textarea:focus, select:focus {
         transition-duration: 0.01ms !important;
     }
 }
+
+
+/* ===== GRID DE PRODUTOS COM ESPAÇAMENTO AJUSTADO ===== */
+.product-grid-4 {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0px;        /* somente entre os cards */
+  width: 100%;      /* ocupa toda a largura da seção */
+}
+
+.product-card {
+  background: #fff;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.product-card .product-image {
+  width: 100%;
+  height: 420px;    /* ajuste conforme desejar */
+  object-fit: cover;
+  display: block;
+}

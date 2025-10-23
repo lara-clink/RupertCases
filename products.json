@@ -128,5 +128,135 @@
       { "label": "Dimensões", "value": "75 x 40 x 25 cm" },
       { "label": "Peso", "value": "3,5 kg" }
     ]
+  },
+  {
+    "id": "guitar-rigid",
+    "name": "Case Rígido Guitarra",
+    "description": "Proteção máxima com interior em veludo e fechos de segurança. Ideal para guitarristas que valorizam a proteção completa do seu instrumento.",
+    "image": "img/cases/guitar-rigid.png",
+    "prices": [
+      { "type": "Básico", "price": "R$ 299,90", "description": "Fibra de vidro padrão, veludo interno" },
+      { "type": "Premium", "price": "R$ 399,90", "description": "Fibra de vidro reforçada, veludo premium" }
+    ],
+    "colors": [
+      { "name": "Preto", "color": "#000000" },
+      { "name": "Marrom", "color": "#8B4513" },
+      { "name": "Azul", "color": "#0000FF" }
+    ],
+    "specs": [
+      { "label": "Material", "value": "Fibra de vidro" },
+      { "label": "Interior", "value": "Veludo de alta densidade" },
+      { "label": "Fechos", "value": "Metal usinado" },
+      { "label": "Dimensões", "value": "110 x 40 x 15 cm" },
+      { "label": "Peso", "value": "3,2 kg" }
+    ]
+  },
+  {
+    "id": "guitar-semi",
+    "name": "Case Semi-Rígido Guitarra",
+    "description": "Leveza e proteção para o dia a dia. Perfeito para músicos que precisam de praticidade sem abrir mão da proteção.",
+    "image": "img/cases/guitar-semi.png",
+    "prices": [
+      { "type": "Padrão", "price": "R$ 189,90", "description": "Proteção adequada para uso diário" }
+    ],
+    "colors": [
+      { "name": "Preto", "color": "#000000" },
+      { "name": "Vermelho", "color": "#FF0000" },
+      { "name": "Verde", "color": "#008000" }
+    ],
+    "specs": [
+      { "label": "Material", "value": "ABS moldado" },
+      { "label": "Interior", "value": "Espuma customizada" },
+      { "label": "Fechos", "value": "Plástico reforçado" },
+      { "label": "Dimensões", "value": "110 x 40 x 15 cm" },
+      { "label": "Peso", "value": "2,1 kg" }
+    ]
+  },
+  {
+    "id": "bass-rigid",
+    "name": "Case Rígido Baixo",
+    "description": "Projetado especificamente para contrabaixos de 4 e 5 cordas. Proteção superior para baixistas profissionais.",
+    "image": "img/cases/bass-rigid.png",
+    "prices": [
+      { "type": "4 Cordas", "price": "R$ 349,90", "description": "Modelo para baixo de 4 cordas" },
+      { "type": "5 Cordas", "price": "R$ 379,90", "description": "Modelo para baixo de 5 cordas" }
+    ],
+    "colors": [
+      { "name": "Preto", "color": "#000000" },
+      { "name": "Azul", "color": "#0000FF" },
+      { "name": "Prata", "color": "#C0C0C0" }
+    ],
+    "specs": [
+      { "label": "Material", "value": "Fibra de vidro" },
+      { "label": "Interior", "value": "Veludo premium" },
+      { "label": "Fechos", "value": "Metal cromado" },
+      { "label": "Dimensões", "value": "120 x 45 x 18 cm" },
+      { "label": "Peso", "value": "4,1 kg" }
+    ]
+  },
+  {
+    "id": "violin-premium",
+    "name": "Case Premium Violino",
+    "description": "Elegância e proteção para instrumentos clássicos. Design refinado que combina com a sofisticação do violino.",
+    "image": "img/cases/violin-premium.png",
+    "prices": [
+      { "type": "Standard", "price": "R$ 459,90", "description": "Proteção completa para violinos" },
+      { "type": "Master", "price": "R$ 599,90", "description": "Versão premium com acabamento especial" }
+    ],
+    "colors": [
+      { "name": "Preto", "color": "#000000" },
+      { "name": "Marrom", "color": "#8B4513" },
+      { "name": "Dourado", "color": "#FFD700" }
+    ],
+    "specs": [
+      { "label": "Material", "value": "Madeira e fibra" },
+      { "label": "Interior", "value": "Veludo aveludado" },
+      { "label": "Fechos", "value": "Latão polido" },
+      { "label": "Dimensões", "value": "75 x 25 x 12 cm" },
+      { "label": "Peso", "value": "2,8 kg" }
+    ]
+  },
+  {
+    "id": "trumpet",
+    "name": "Case Trompete",
+    "description": "Proteção especializada para instrumentos de sopro. Compartimentos organizados para todos os acessórios.",
+    "image": "img/cases/trumpet.png",
+    "prices": [
+      { "type": "Standard", "price": "R$ 279,90", "description": "Proteção completa para trompete" }
+    ],
+    "colors": [
+      { "name": "Preto", "color": "#000000" },
+      { "name": "Azul", "color": "#0000FF" },
+      { "name": "Branco", "color": "#FFFFFF" }
+    ],
+    "specs": [
+      { "label": "Material", "value": "ABS moldado" },
+      { "label": "Interior", "value": "Espuma customizada" },
+      { "label": "Compartimentos", "value": "Para bocal e acessórios" },
+      { "label": "Dimensões", "value": "60 x 35 x 20 cm" },
+      { "label": "Peso", "value": "1,8 kg" }
+    ]
+  },
+  {
+    "id": "saxophone",
+    "name": "Case Saxofone",
+    "description": "Design ergonômico com compartimentos específicos para saxofone e todos os seus acessórios essenciais.",
+    "image": "img/cases/saxophone.png",
+    "prices": [
+      { "type": "Alto", "price": "R$ 399,90", "description": "Para saxofone alto" },
+      { "type": "Tenor", "price": "R$ 449,90", "description": "Para saxofone tenor" }
+    ],
+    "colors": [
+      { "name": "Preto", "color": "#000000" },
+      { "name": "Marrom", "color": "#8B4513" },
+      { "name": "Vermelho", "color": "#FF0000" }
+    ],
+    "specs": [
+      { "label": "Material", "value": "Fibra de vidro" },
+      { "label": "Interior", "value": "Veludo customizado" },
+      { "label": "Compartimentos", "value": "Para bocal, palhetas e acessórios" },
+      { "label": "Dimensões", "value": "75 x 40 x 25 cm" },
+      { "label": "Peso", "value": "3,5 kg" }
+    ]
   }
 ]

@@ -468,33 +468,61 @@ function closeProductModal() { productModalManager.closeModal(); }
 function finalizePurchase() { productModalManager.finalizePurchase(); }
 
 // ===== CARREGAR PRODUTOS DO JSON =====
+// Paginação do catálogo
+let ALL_PRODUCTS = [];
+let renderedCount = 0;
+const PAGE_SIZE = 4;
+
+function renderNextProducts() {
+    const grid = document.getElementById('productGrid');
+    if (!grid || !ALL_PRODUCTS.length) return;
+
+    const slice = ALL_PRODUCTS.slice(renderedCount, renderedCount + PAGE_SIZE);
+    slice.forEach(p => {
+        const card = document.createElement('div');
+        card.className = "product-card bg-white rounded-none shadow-lg overflow-hidden cursor-pointer scale-in";
+        card.onclick = () => openProductModal(p.id);
+        card.innerHTML = `
+            <div class="relative">
+                <img src="${p.image}" alt="${p.name}" class="product-image">
+                <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300">
+                    <div class="text-center text-white">
+                        <p class="text-lg font-semibold tracking-wide">Ver Detalhes</p>
+                        <p class="text-sm opacity-90">Clique para mais informações</p>
+                    </div>
+                </div>
+                <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-4">
+                    <h3 class="text-xl font-semibold text-white tracking-wide">${p.name}</h3>
+                </div>
+            </div>`;
+        grid.appendChild(card);
+    });
+
+    renderedCount += slice.length;
+    const btn = document.getElementById('showMoreBtn');
+    if (btn) btn.style.display = renderedCount >= ALL_PRODUCTS.length ? 'none' : 'inline-flex';
+}
+
 async function loadProducts() {
     try {
         const response = await fetch('products.json');
         const products = await response.json();
+        // guarda todos e injeta no modal manager
+        ALL_PRODUCTS = Array.isArray(products) ? products : [];
+        productModalManager.setProducts(ALL_PRODUCTS);
+
+        // limpa e renderiza somente 4
         const grid = document.getElementById('productGrid');
+        if (grid) grid.innerHTML = '';
+        renderedCount = 0;
+        renderNextProducts();
 
-        products.forEach(p => {
-            const card = document.createElement('div');
-            card.className = "product-card bg-white rounded-none shadow-lg overflow-hidden cursor-pointer scale-in";
-            card.onclick = () => openProductModal(p.id);
-            card.innerHTML = `
-                <div class="relative">
-                    <img src="${p.image}" alt="${p.name}" class="w-full h-80 object-cover">
-                    <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300">
-                        <div class="text-center text-white">
-                            <p class="text-lg font-semibold tracking-wide">Ver Detalhes</p>
-                            <p class="text-sm opacity-90">Clique para mais informações</p>
-                        </div>
-                    </div>
-                    <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-4">
-                        <h3 class="text-xl font-semibold text-white tracking-wide">${p.name}</h3>
-                    </div>
-                </div>`;
-            grid.appendChild(card);
-        });
-
-        productModalManager.setProducts(products);
+        // botão "Mostrar mais"
+        const btn = document.getElementById('showMoreBtn');
+        if (btn) {
+            btn.onclick = () => renderNextProducts();
+            btn.style.display = ALL_PRODUCTS.length > PAGE_SIZE ? 'inline-flex' : 'none';
+        }
     } catch (err) {
         console.error("Erro ao carregar produtos:", err);
     }
