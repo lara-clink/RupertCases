@@ -496,6 +496,8 @@ function renderNextProducts() {
                 </div>
             </div>`;
         grid.appendChild(card);
+
+        requestAnimationFrame(() => card.classList.add('visible'));
     });
 
     renderedCount += slice.length;
