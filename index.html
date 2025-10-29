@@ -314,49 +314,48 @@
     </section>
 
     <div id="productModal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden flex items-center justify-center p-4">
-        <div class="bg-white rounded-lg max-w-4xl w-full max-h-[90vh] overflow-y-auto">
-            <div class="flex flex-col lg:flex-row">
-                <div class="lg:w-1/2">
-                    <div class="relative">
-                        <img id="modalProductImage" src="" alt="" class="w-full h-96 lg:h-full object-cover">
-                        <button onclick="closeProductModal()" class="absolute top-4 right-4 bg-black bg-opacity-50 text-white p-2 rounded-full hover:bg-opacity-70 transition-all">
-                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-
-                            </svg>
-                        </button>
-                    </div>
+        <div class="bg-white rounded-lg relative max-w-4xl w-full overflow-hidden">
+            <button onclick="closeProductModal()" class="absolute top-3 right-5 z-20 bg-black bg-opacity-50 text-white p-2 rounded-full hover:bg-opacity-70 transition-all">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+            </button>
+        <div class="max-h-[90vh] overflow-y-auto">
+        <div class="flex flex-col lg:flex-row lg:gap-8">
+            <div class="lg:w-1/2">
+                <div class="relative">
+                    <img id="modalProductImage" src="" alt="" class="w-full h-96 lg:h-full object-cover">
                 </div>
-                
-                <div class="lg:w-1/2 p-8">
-                    <h2 id="modalProductName" class="text-3xl font-light mb-4 text-black tracking-wide"></h2>
-                    <p id="modalProductDescription" class="text-gray-700 mb-6 font-light"></p>
-                    
-                    <div class="mb-8">
-                        <h3 class="text-xl font-semibold mb-4 tracking-wide">Preços</h3>
-                        <div id="modalProductPrices" class="space-y-3">
-                            </div>
-                    </div>
-                    
-                    <div class="mb-8">
-                        <h3 class="text-xl font-semibold mb-4 tracking-wide">Cores Disponíveis</h3>
-                        <div id="modalProductColors" class="grid grid-cols-3 gap-3">
-                            </div>
-                    </div>
-                    
-                    <div class="mb-8">
-                        <h3 class="text-xl font-semibold mb-4 tracking-wide">Especificações</h3>
-                        <div id="modalProductSpecs" class="space-y-2 text-gray-700">
-                            </div>
-                    </div>
-                    
-                    <div class="pt-6 border-t">
-                        <button id="modalBuyButton" onclick="finalizePurchase()" class="w-full bg-black text-white py-4 px-6 rounded-none font-semibold text-lg hover:bg-gray-800 transition-colors uppercase tracking-wider">
-                            Finalizar Compra
-                        </button>
+                <div class="p-8">
+                    <div class="mb-2">
+                        <h3 class="text-xl font-semibold mb-4 tracking-wide text-center">Cores disponíveis à pronta-entrega</h3>
+                        <div id="modalProductColors" class="flex flex-wrap justify-center items-center gap-10"></div>
+                        <p class="mt-2 text-gray-500 text-center">
+                            Caso desejar outras cores, fale conosco que faremos o case personalizado
+                        </p>
                     </div>
                 </div>
             </div>
+            
+            <div class="lg:w-1/2 p-8">
+                <h2 id="modalProductName" class="text-3xl font-light mb-4 text-black tracking-wide"></h2>
+                <p id="modalProductDescription" class="text-gray-700 mb-6 font-light"></p>
+                <div class="mb-8">
+                    <h3 class="text-xl font-semibold mb-4 tracking-wide">Preços</h3>
+                    <div id="modalProductPrices" class="space-y-3"></div>
+                </div>
+                <div class="mb-8">
+                    <h3 class="text-xl font-semibold mb-4 tracking-wide">Especificações</h3>
+                    <div id="modalProductSpecs" class="space-y-2 text-gray-700"></div>
+                </div>
+                <div class="pt-6 border-t">
+                    <button id="modalBuyButton" onclick="finalizePurchase()" class="w-full bg-black text-white py-4 px-6 rounded-none font-semibold text-lg hover:bg-gray-800 transition-colors uppercase tracking-wider">
+                        Finalizar Compra
+                    </button>
+                </div>
+            </div>
+        </div>
+        </div>
         </div>
     </div>
 
