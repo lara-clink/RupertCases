@@ -485,6 +485,43 @@ function renderNextProducts() {
         card.innerHTML = `
             <div class="relative">
                 <img src="${p.image}" alt="${p.name}" class="product-image">
+                <button class="card-arrow card-arrow-left" aria-label="Imagem anterior">‹</button>
+                <button class="card-arrow card-arrow-right" aria-label="Próxima imagem">›</button>
+                <div class="card-overlay absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 pointer-events-none">
+                <div class="text-center text-white">
+                    <p class="text-lg font-semibold tracking-wide">Ver Detalhes</p>
+                    <p class="text-sm opacity-90">Clique para mais informações</p>
+                </div>
+                </div>
+                <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-4">
+                <h3 class="text-xl font-semibold text-white tracking-wide">${p.name}</h3>
+                </div>
+            </div>`;
+        grid.appendChild(card);
+
+        requestAnimationFrame(() => card.classList.add('visible'));
+    });
+
+    renderedCount += slice.length;
+    const btn = document.getElementById('showMoreBtn');
+    if (btn) btn.style.display = renderedCount >= ALL_PRODUCTS.length ? 'none' : 'inline-flex';
+}
+
+function renderNextProducts() {
+    const grid = document.getElementById('productGrid');
+    if (!grid || !ALL_PRODUCTS.length) return;
+
+    const slice = ALL_PRODUCTS.slice(renderedCount, renderedCount + PAGE_SIZE);
+    slice.forEach(p => {
+        const card = document.createElement('div');
+        card.className = "product-card bg-white rounded-none shadow-lg overflow-hidden cursor-pointer scale-in";
+        card.onclick = () => openProductModal(p.id);
+
+        card.innerHTML = `
+            <div class="relative">
+                <img src="${p.image}" alt="${p.name}" class="product-image">
+                <button class="card-arrow card-arrow-left" aria-label="Imagem anterior">‹</button>
+                <button class="card-arrow card-arrow-right" aria-label="Próxima imagem">›</button>
                 <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300">
                     <div class="text-center text-white">
                         <p class="text-lg font-semibold tracking-wide">Ver Detalhes</p>
@@ -495,8 +532,38 @@ function renderNextProducts() {
                     <h3 class="text-xl font-semibold text-white tracking-wide">${p.name}</h3>
                 </div>
             </div>`;
+
         grid.appendChild(card);
 
+        // Galeria: usa p.gallery se existir; senão cai para [p.image]
+        const gallery = (Array.isArray(p.gallery) && p.gallery.length > 0) ? p.gallery : [p.image];
+        let idx = 0;
+
+        const imgEl = card.querySelector('img.product-image');
+        const btnPrev = card.querySelector('.card-arrow-left');
+        const btnNext = card.querySelector('.card-arrow-right');
+
+        const applyImage = () => { imgEl.src = gallery[idx]; };
+        applyImage();
+
+        // Oculta setas se só houver 1 imagem
+        if (gallery.length <= 1) {
+            btnPrev.style.display = 'none';
+            btnNext.style.display = 'none';
+        } else {
+            btnPrev.addEventListener('click', (e) => {
+                e.stopPropagation();
+                idx = (idx - 1 + gallery.length) % gallery.length;
+                applyImage();
+            });
+            btnNext.addEventListener('click', (e) => {
+                e.stopPropagation();
+                idx = (idx + 1) % gallery.length;
+                applyImage();
+            });
+        }
+
+        // garante exibição (animação)
         requestAnimationFrame(() => card.classList.add('visible'));
     });
 

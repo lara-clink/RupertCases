@@ -39,7 +39,11 @@
     "id": "sax-alto",
     "name": "Case Saxofone Alto",
     "description": "Case super resistente feito em fibra de vidro com revestimento externo em Nylon e costura dupla. Possui interior em tecido aveludado, correias para transporte, pés de apoio reforçados, zíper de alta qualidade e bolsa externa para hinário/partituras. Leve, compacto e seguro.",
-    "image": "img/cases/saxophone.png",
+    "image": "img/cases/saxophone-preto.png",
+    "gallery": [
+      "img/cases/saxophone-preto.png",
+      "img/cases/saxophone-azul.png"
+    ],
     "prices": [
       { "type": "Alto", "price": "R$ 990,00", "description": "Para sax alto" }
     ],
