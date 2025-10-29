@@ -370,6 +370,10 @@ class ProductModalManager {
         this.populateColors(product.colors);
         this.populateSpecs(product.specs);
 
+        // Seleciona a primeira cor (se existir) para sincronizar a imagem
+        const firstColorEl = document.querySelector('#modalProductColors .color-option');
+        if (firstColorEl) this.selectColor(0, firstColorEl);
+
         this.modal.classList.remove('hidden');
         document.body.style.overflow = 'hidden';
         setTimeout(() => {
@@ -439,6 +443,47 @@ class ProductModalManager {
         document.querySelectorAll('.color-option').forEach(el => el.classList.remove('selected'));
         element.classList.add('selected');
         this.selectedColor = index;
+
+        // Atualiza a imagem conforme a cor selecionada
+        this.updateModalImageForColor();
+    }
+
+    // Decide qual imagem exibir para a cor selecionada (sem exigir mudanças no JSON)
+    updateModalImageForColor() {
+        const imgEl = document.getElementById('modalProductImage');
+        if (!imgEl || !this.product) return;
+        const i = this.selectedColor;
+        if (i === null) return;
+
+        const p = this.product;
+
+        // 1) Se a cor tiver imagem própria: colors[i].image
+        if (Array.isArray(p.colors) && p.colors[i] && p.colors[i].image) {
+            imgEl.src = p.colors[i].image;
+            return;
+        }
+
+        // 2) Se existir mapeamento por índice: colorImages[i]
+        if (Array.isArray(p.colorImages) && p.colorImages[i]) {
+            imgEl.src = p.colorImages[i];
+            return;
+        }
+
+        // 3) Se existir mapeamento por nome: colorImagesByName["Preto"]
+        const colorName = p.colors?.[i]?.name;
+        if (p.colorImagesByName && colorName && p.colorImagesByName[colorName]) {
+            imgEl.src = p.colorImagesByName[colorName];
+            return;
+        }
+
+        // 4) Fallback: usar gallery[i] (se houver)
+        if (Array.isArray(p.gallery) && p.gallery[i]) {
+            imgEl.src = p.gallery[i];
+            return;
+        }
+
+        // 5) Por fim, mantém a imagem principal (p.image)
+        imgEl.src = p.image;
     }
 
     finalizePurchase() {
