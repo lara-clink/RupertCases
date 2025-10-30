@@ -516,47 +516,23 @@ function finalizePurchase() { productModalManager.finalizePurchase(); }
 // Paginação do catálogo
 let ALL_PRODUCTS = [];
 let renderedCount = 0;
-const PAGE_SIZE = 4;
 
-function renderNextProducts() {
+// Quantas colunas o grid tem neste breakpoint
+function getGridColumnCount() {
     const grid = document.getElementById('productGrid');
-    if (!grid || !ALL_PRODUCTS.length) return;
-
-    const slice = ALL_PRODUCTS.slice(renderedCount, renderedCount + PAGE_SIZE);
-    slice.forEach(p => {
-        const card = document.createElement('div');
-        card.className = "product-card bg-white rounded-none shadow-lg overflow-hidden cursor-pointer scale-in";
-        card.onclick = () => openProductModal(p.id);
-        card.innerHTML = `
-            <div class="relative">
-                <img src="${p.image}" alt="${p.name}" class="product-image">
-                <button class="card-arrow card-arrow-left" aria-label="Imagem anterior">‹</button>
-                <button class="card-arrow card-arrow-right" aria-label="Próxima imagem">›</button>
-                <div class="card-overlay absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 pointer-events-none">
-                <div class="text-center text-white">
-                    <p class="text-lg font-semibold tracking-wide">Ver Detalhes</p>
-                    <p class="text-sm opacity-90">Clique para mais informações</p>
-                </div>
-                </div>
-                <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-4">
-                <h3 class="text-xl font-semibold text-white tracking-wide">${p.name}</h3>
-                </div>
-            </div>`;
-        grid.appendChild(card);
-
-        requestAnimationFrame(() => card.classList.add('visible'));
-    });
-
-    renderedCount += slice.length;
-    const btn = document.getElementById('showMoreBtn');
-    if (btn) btn.style.display = renderedCount >= ALL_PRODUCTS.length ? 'none' : 'inline-flex';
+    if (!grid) return 1;
+    const cols = getComputedStyle(grid).getPropertyValue('grid-template-columns') || '';
+    const count = cols.split(' ').filter(Boolean).length || 1;
+    return Math.max(1, count);
 }
 
+// Deixe apenas esta definição (remova a outra duplicada acima, se existir)
 function renderNextProducts() {
     const grid = document.getElementById('productGrid');
     if (!grid || !ALL_PRODUCTS.length) return;
 
-    const slice = ALL_PRODUCTS.slice(renderedCount, renderedCount + PAGE_SIZE);
+    const pageSize = getGridColumnCount(); // preenche exatamente 1 linha
+    const slice = ALL_PRODUCTS.slice(renderedCount, renderedCount + pageSize);
     slice.forEach(p => {
         const card = document.createElement('div');
         card.className = "product-card bg-white rounded-none shadow-lg overflow-hidden cursor-pointer scale-in";
@@ -580,7 +556,7 @@ function renderNextProducts() {
 
         grid.appendChild(card);
 
-        // Galeria: usa p.gallery se existir; senão cai para [p.image]
+        // Galeria: usa p.gallery se existir; senão [p.image]
         const gallery = (Array.isArray(p.gallery) && p.gallery.length > 0) ? p.gallery : [p.image];
         let idx = 0;
 
@@ -591,7 +567,6 @@ function renderNextProducts() {
         const applyImage = () => { imgEl.src = gallery[idx]; };
         applyImage();
 
-        // Oculta setas se só houver 1 imagem
         if (gallery.length <= 1) {
             btnPrev.style.display = 'none';
             btnNext.style.display = 'none';
@@ -608,7 +583,6 @@ function renderNextProducts() {
             });
         }
 
-        // garante exibição (animação)
         requestAnimationFrame(() => card.classList.add('visible'));
     });
 
@@ -621,21 +595,20 @@ async function loadProducts() {
     try {
         const response = await fetch('products.json');
         const products = await response.json();
-        // guarda todos e injeta no modal manager
         ALL_PRODUCTS = Array.isArray(products) ? products : [];
         productModalManager.setProducts(ALL_PRODUCTS);
 
-        // limpa e renderiza somente 4
         const grid = document.getElementById('productGrid');
         if (grid) grid.innerHTML = '';
         renderedCount = 0;
+
+        // Renderiza exatamente 1 linha conforme colunas atuais
         renderNextProducts();
 
-        // botão "Mostrar mais"
         const btn = document.getElementById('showMoreBtn');
         if (btn) {
             btn.onclick = () => renderNextProducts();
-            btn.style.display = ALL_PRODUCTS.length > PAGE_SIZE ? 'inline-flex' : 'none';
+            btn.style.display = renderedCount >= ALL_PRODUCTS.length ? 'none' : 'inline-flex';
         }
     } catch (err) {
         console.error("Erro ao carregar produtos:", err);
@@ -658,7 +631,7 @@ loadProducts();
  * @param {string} [produto.frete] - Valor do frete (opcional).
  */
 function comprarPeloWhatsApp(produto) {
-  const numeroVendedor = "5541996486800"; // número da empresa
+  const numeroVendedor = "5511972322900"; // número da empresa
 
   // Monta a mensagem
   let mensagem = `Olá! Tenho interesse no produto *${produto.nome}*`;
