@@ -151,7 +151,7 @@ class NavigationManager {
     }
 }
 
-// ===== GERENCIADOR DE FORMULÁRIOS =====
+// ===== GERENCIADOR DE FORMULÁRIOS (COM FORMULÁRIO DE CONTATO FUNCIONAL) =====
 class FormManager {
     constructor() {
         this.init();
@@ -168,6 +168,10 @@ class FormManager {
             contactForm.addEventListener('submit', (e) => {
                 e.preventDefault();
                 
+                // Pegar os dados do formulário
+                const nome = document.getElementById('contact-name').value;
+                const mensagemUsuario = document.getElementById('contact-message').value;
+
                 // Animação de envio
                 const submitBtn = contactForm.querySelector('button[type="submit"]');
                 const originalText = submitBtn.textContent;
@@ -175,8 +179,19 @@ class FormManager {
                 submitBtn.textContent = 'Enviando...';
                 submitBtn.style.opacity = '0.7';
                 submitBtn.disabled = true;
+                
+                // Montar a mensagem do WhatsApp
+                const numeroVendedor = "5511947029458"; // Número da empresa
+                let mensagem = `Olá! Meu nome é *${nome}*.\n\n${mensagemUsuario}`;
+                
+                // Usar o link do WhatsApp Web para desktops
+                const linkWhatsApp = `https://web.whatsapp.com/send?phone=${numeroVendedor}&text=${encodeURIComponent(mensagem)}`;
+                
+                // Abrir WhatsApp
+                window.open(linkWhatsApp, "_blank");
 
-                // Simular envio
+                // Mostrar sucesso e resetar o formulário
+                // (Mantemos a simulação de sucesso, pois o envio real é no WhatsApp)
                 setTimeout(() => {
                     this.showSuccessMessage();
                     contactForm.reset();
@@ -184,7 +199,7 @@ class FormManager {
                     submitBtn.textContent = originalText;
                     submitBtn.style.opacity = '1';
                     submitBtn.disabled = false;
-                }, 2000);
+                }, 1000); // Reduzido para 1 segundo
             });
         }
     }
@@ -618,7 +633,7 @@ async function loadProducts() {
 loadProducts();
 
 
-// ===== REDIRECIONAR PARA WHATSAPP =====
+// ===== REDIRECIONAR PARA WHATSAPP (COMPRA) =====
 /**
  * Envia uma mensagem para o WhatsApp com as informações do produto selecionado.
  * @param {Object} produto - Objeto contendo as informações do produto.
@@ -631,7 +646,7 @@ loadProducts();
  * @param {string} [produto.frete] - Valor do frete (opcional).
  */
 function comprarPeloWhatsApp(produto) {
-  const numeroVendedor = "5511972322900"; // número da empresa
+  const numeroVendedor = "5511947029458 "; // número da empresa
 
   // Monta a mensagem
   let mensagem = `Olá! Tenho interesse no produto *${produto.nome}*`;
@@ -648,6 +663,7 @@ function comprarPeloWhatsApp(produto) {
 
   mensagem += `\nGostaria de saber mais detalhes e finalizar a compra.`;
 
-  const linkWhatsApp = `https://api.whatsapp.com/send?phone=${numeroVendedor}&text=${encodeURIComponent(mensagem)}`;
+  // Use o link do WhatsApp Web para desktops
+  const linkWhatsApp = `https://web.whatsapp.com/send?phone=${numeroVendedor}&text=${encodeURIComponent(mensagem)}`;
   window.open(linkWhatsApp, "_blank");
 }
