@@ -3,12 +3,12 @@
     "id": "trombone-pistos",
     "name": "Case Trombone de Pistos",
     "description": "Case super resistente feito em fibra de vidro com revestimento externo em Nylon e costura dupla. Possui interior em tecido aveludado, correias para transporte, pés de apoio reforçados, zíper de alta qualidade e bolsa externa para hinário/partituras. Leve, compacto e seguro.",
-    "image": "img/cases/TrombonePisto1.jpg",
+    "image": "img/cases/trombone-pisto/preto/TrombonePisto1.jpg",
     "gallery": [
-      "img/cases/TrombonePisto1.jpg",
-      "img/cases/TrombonePisto2.jpg",
-      "img/cases/TrombonePisto3.jpg",
-      "img/cases/TrombonePisto4.jpg"
+      "img/cases/trombone-pisto/preto/TrombonePisto1.jpg",
+      "img/cases/trombone-pisto/preto/TrombonePisto2.jpg",
+      "img/cases/trombone-pisto/preto/TrombonePisto3.jpg",
+      "img/cases/trombone-pisto/preto/TrombonePisto4.jpg"
     ],
     "prices": [
       { "type": "Standard", "price": "R$ 1.390,00", "description": "Proteção completa" }
@@ -23,10 +23,10 @@
         "name": "Marrom", 
         "color": "#5D4037", 
         "gallery": [
-          "img/cases/TrombonePistoMarrom1.jpg",
-          "img/cases/TrombonePistoMarrom2.jpg",
-          "img/cases/TrombonePistoMarrom3.jpg",
-          "img/cases/TrombonePistoMarrom4.jpg"
+          "img/cases/trombone-pisto/marrom/TrombonePistoMarrom1.jpg",
+          "img/cases/trombone-pisto/marrom/TrombonePistoMarrom2.jpg",
+          "img/cases/trombone-pisto/marrom/TrombonePistoMarrom3.jpg",
+          "img/cases/trombone-pisto/marrom/TrombonePistoMarrom4.jpg"
         ]
       }
     ],
@@ -41,12 +41,12 @@
     "id": "trombone-vara",
     "name": "Case Trombone de Vara Tenor",
     "description": "Case super resistente feito em fibra de vidro com revestimento externo em Nylon e costura dupla. Possui interior em tecido aveludado, correias para transporte, pés de apoio reforçados, zíper de alta qualidade e bolsa externa para hinário/partituras. Leve, compacto e seguro.",
-    "image": "img/cases/TromboneVara2.jpg",
+    "image": "img/cases/trombone-vara/preto/TromboneVara2.jpg",
     "gallery": [
-      "img/cases/TromboneVara1.jpg",
-      "img/cases/TromboneVara2.jpg",
-      "img/cases/TromboneVara3.jpg",
-      "img/cases/TromboneVara4.jpg"
+      "img/cases/trombone-vara/preto/TromboneVara1.jpg",
+      "img/cases/trombone-vara/preto/TromboneVara2.jpg",
+      "img/cases/trombone-vara/preto/TromboneVara3.jpg",
+      "img/cases/trombone-vara/preto/TromboneVara4.jpg"
     ],
     "prices": [
       { "type": "Standard", "price": "R$ 1.590,00", "description": "Proteção completa" }
@@ -65,18 +65,25 @@
     "id": "sax-alto",
     "name": "Case Saxofone Alto",
     "description": "Case super resistente feito em fibra de vidro com revestimento externo em Nylon e costura dupla. Possui interior em tecido aveludado, correias para transporte, pés de apoio reforçados, zíper de alta qualidade e bolsa externa para hinário/partituras. Leve, compacto e seguro.",
-    "image": "img/cases/saxophone-preto.png",
+    "image": "img/cases/sax-alto/preto/sax-alto.png",
     "gallery": [
-      "img/cases/saxophone-preto.png",
-      "img/cases/saxophone-azul.png",
-      "img/cases/saxophone-tenor.png"
+      "img/cases/sax-alto/preto/sax-alto.png",
+      "img/cases/sax-alto/preto/sax-alto2.png",
+      "img/cases/sax-alto/preto/sax-alto3.png"
     ],
     "prices": [
       { "type": "Alto", "price": "R$ 990,00", "description": "Para sax alto" }
     ],
     "colors": [
       { "name": "Preto", "color": "#000000" },
-      { "name": "Azul", "color": "#0000FF" }
+      { "name": "Cinza", "color": "#71706f", 
+        "gallery": [
+          "img/cases/sax-alto/cinza/sax-alto-cinza.png",
+          "img/cases/sax-alto/cinza/sax-alto-cinza2.png",
+          "img/cases/sax-alto/cinza/sax-alto-cinza3.png",
+          "img/cases/sax-alto/cinza/sax-alto-cinza4.png"
+        ]
+      }
     ],
     "specs": [
       { "label": "Material", "value": "Fibra de vidro / Nylon" },
@@ -89,11 +96,12 @@
     "id": "sax-tenor",
     "name": "Case Saxofone Tenor",
     "description": "Case super resistente feito em fibra de vidro com revestimento externo em Nylon e costura dupla. Possui interior em tecido aveludado, correias para transporte, pés de apoio reforçados, zíper de alta qualidade e bolsa externa para hinário/partituras. Leve, compacto e seguro.",
-    "image": "img/cases/saxophone-tenor.png",
+    "image": "img/cases/sax-tenor/preto/sax-tenor.png",
     "gallery": [
-      "img/cases/saxophone-tenor.png",
-      "img/cases/saxophone-preto.png",
-      "img/cases/saxophone-azul.png"
+      "img/cases/sax-tenor/preto/sax-tenor.png",
+      "img/cases/sax-tenor/preto/sax-tenor2.png",
+      "img/cases/sax-tenor/preto/sax-tenor3.png",
+      "img/cases/sax-tenor/preto/sax-tenor4.png"
     ],
     "prices": [
       { "type": "Tenor", "price": "R$ 1.190,00", "description": "Para sax tenor" }
@@ -112,11 +120,12 @@
     "id": "euphonium",
     "name": "Case Euphonium",
     "description": "Case super resistente feito em fibra de vidro com revestimento externo em Nylon e costura dupla. Possui interior em tecido aveludado, correias para transporte, pés de apoio reforçados, zíper de alta qualidade e bolsa externa para hinário/partituras. Leve, compacto e seguro.",
-    "image": "img/cases/euphonium.png",
+    "image": "img/cases/eufonio/preto/eufonio.png",
     "gallery": [
-      "img/cases/euphonium.png",
-      "img/cases/trombone-pistos.png",
-      "img/cases/trombone-vara.png"
+      "img/cases/eufonio/preto/eufonio.png",
+      "img/cases/eufonio/preto/eufonio2.png",
+      "img/cases/eufonio/preto/eufonio3.png",
+      "img/cases/eufonio/preto/eufonio4.png"
     ],
     "prices": [
       { "type": "Standard", "price": "R$ 1.590,00", "description": "Proteção completa" }
@@ -135,10 +144,10 @@
     "id": "trumpet",
     "name": "Case Trompete",
     "description": "Case super resistente feito em fibra de vidro com revestimento externo em Nylon e costura dupla. Possui interior em tecido aveludado, correias para transporte, pés de apoio reforçados, zíper de alta qualidade e bolsa externa para hinário/partituras. Leve, compacto e seguro.",
-    "image": "img/cases/trumpet.png",
+    "image": "img/cases/trompete/preto/trompete.png",
     "gallery": [
-      "img/cases/trumpet.png",
-      "img/cases/trombone-pistos.png"
+      "img/cases/trompete/preto/trompete.png",
+      "img/cases/trompete/preto/trompete2.png"
     ],
     "prices": [
       { "type": "Standard", "price": "R$ 790,00", "description": "Proteção completa" }
