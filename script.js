@@ -240,7 +240,6 @@ class SpecialAnimations {
     }
 
     setupProductCardAnimations() {
-        // Aplica animações via CSS/Classes, mas listeners podem ser adicionados aqui se necessário
         const productCards = document.querySelectorAll('.product-card');
         productCards.forEach((card, index) => {
             card.style.transitionDelay = `${index * 0.1}s`;
@@ -255,7 +254,7 @@ class SpecialAnimations {
     }
 }
 
-// ===== SISTEMA DE MODAL DE PRODUTOS COMPLETO (COM CARROSSEL E ZOOM) =====
+// ===== SISTEMA DE MODAL COM MINIATURAS E ZOOM =====
 class ProductModalManager {
     constructor() {
         this.modal = null;
@@ -263,7 +262,6 @@ class ProductModalManager {
         this.selectedColor = null;
         this.selectedPrice = null;
         
-        // Estado do Carrossel
         this.currentGallery = [];
         this.currentImageIndex = 0;
 
@@ -274,28 +272,15 @@ class ProductModalManager {
         this.modal = document.getElementById('productModal');
         this.imgElement = document.getElementById('modalProductImage');
         this.containerElement = document.getElementById('modalImageContainer');
+        this.thumbnailsContainer = document.getElementById('modalThumbnails');
 
         if (this.modal) {
-            // Fechar ao clicar fora
             this.modal.addEventListener('click', (e) => {
                 if (e.target === this.modal) this.closeModal();
             });
         }
 
-        // Event Listeners: Navegação do Carrossel
-        const prevBtn = document.getElementById('modalPrevBtn');
-        const nextBtn = document.getElementById('modalNextBtn');
-
-        if (prevBtn) prevBtn.addEventListener('click', (e) => { 
-            e.stopPropagation(); 
-            this.prevImage(); 
-        });
-        if (nextBtn) nextBtn.addEventListener('click', (e) => { 
-            e.stopPropagation(); 
-            this.nextImage(); 
-        });
-
-        // Event Listeners: Zoom
+        // Lógica do Zoom (Mouse Move)
         if (this.containerElement && this.imgElement) {
             this.containerElement.addEventListener('mousemove', (e) => this.handleZoom(e));
             this.containerElement.addEventListener('mouseleave', () => this.resetZoom());
@@ -317,147 +302,130 @@ class ProductModalManager {
         this.selectedColor = null;
         this.selectedPrice = null;
 
-        // --- Configuração do Carrossel ---
-        // Se existir "gallery" no JSON, usa ela. Caso contrário, usa a imagem principal.
+        // Configuração inicial da galeria
         this.currentGallery = (product.gallery && product.gallery.length > 0) 
             ? product.gallery 
             : [product.image];
         
         this.currentImageIndex = 0;
-        this.updateCarouselDisplay();
-        // ---------------------------------
-
-        // Preencher textos
+        
+        // Preencher dados
         document.getElementById('modalProductName').textContent = product.name;
         document.getElementById('modalProductDescription').textContent = product.description;
 
-        // Gerar listas
         this.populatePrices(product.prices);
         this.populateColors(product.colors);
         this.populateSpecs(product.specs);
 
-        // Selecionar primeira cor por padrão (se houver)
+        // Selecionar primeira cor se houver
         const firstColorEl = document.querySelector('#modalProductColors .color-option');
         if (firstColorEl) this.selectColor(0, firstColorEl);
-
-        // Mostrar Modal
-        this.modal.classList.remove('hidden');
-        document.body.style.overflow = 'hidden'; // Bloqueia scroll da página
         
-        // Pequena animação de entrada
-        setTimeout(() => {
-            const modalContent = this.modal.querySelector('.bg-white');
-            if(modalContent) modalContent.classList.add('modal-animate-in');
-        }, 10);
+        // Atualiza a exibição (Imagem principal + Miniaturas)
+        // Se selectColor já tiver sido chamado acima, ele atualiza o display.
+        // Se não houver cores, precisamos chamar manualmente.
+        if (!firstColorEl) this.updateCarouselDisplay(); 
+
+        this.modal.classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
     }
 
     closeModal() {
         if (!this.modal) return;
-        
         this.modal.classList.add('hidden');
-        document.body.style.overflow = 'auto'; // Libera scroll
-        
-        const modalContent = this.modal.querySelector('.bg-white');
-        if(modalContent) modalContent.classList.remove('modal-animate-in');
-        
-        this.resetZoom(); // Reseta zoom ao fechar
+        document.body.style.overflow = 'auto';
+        this.resetZoom();
     }
 
-    // --- Lógica do Carrossel ---
+    // --- Lógica Principal: Atualiza Foto Grande e Gera Miniaturas ---
     updateCarouselDisplay() {
-        if (!this.imgElement) return;
+        if (!this.imgElement || !this.thumbnailsContainer) return;
 
-        // Atualiza src da imagem
-        this.imgElement.src = this.currentGallery[this.currentImageIndex];
-        
-        // Controlar visibilidade das setas
-        const prevBtn = document.getElementById('modalPrevBtn');
-        const nextBtn = document.getElementById('modalNextBtn');
-        const hasMultiple = this.currentGallery.length > 1;
-        
-        if (prevBtn) prevBtn.style.display = hasMultiple ? 'block' : 'none';
-        if (nextBtn) nextBtn.style.display = hasMultiple ? 'block' : 'none';
+        // 1. Atualiza Imagem Principal
+        const currentSrc = this.currentGallery[this.currentImageIndex];
+        this.imgElement.src = currentSrc;
 
-        // Atualizar Bolinhas (Indicadores)
-        const indicatorsContainer = document.getElementById('modalImageIndicators');
-        if (indicatorsContainer) {
-            indicatorsContainer.innerHTML = '';
-            if (hasMultiple) {
-                this.currentGallery.forEach((_, idx) => {
-                    const dot = document.createElement('div');
-                    // Estilo da bolinha: preta se ativa, cinza se inativa
-                    dot.className = `w-2 h-2 rounded-full cursor-pointer transition-all ${idx === this.currentImageIndex ? 'bg-black w-4' : 'bg-gray-300 hover:bg-gray-400'}`;
-                    dot.onclick = () => {
-                        this.currentImageIndex = idx;
-                        this.updateCarouselDisplay();
-                    };
-                    indicatorsContainer.appendChild(dot);
-                });
-            }
+        // 2. Gera as Miniaturas
+        this.thumbnailsContainer.innerHTML = '';
+        
+        // Se só tiver 1 imagem, não precisa mostrar lista de miniaturas (opcional, pode remover o if se quiser mostrar sempre)
+        if (this.currentGallery.length > 1) {
+            this.currentGallery.forEach((src, index) => {
+                const thumb = document.createElement('img');
+                thumb.src = src;
+                
+                // Classes para estilo da miniatura
+                // Se for a imagem ativa: borda preta grossa. Se não: borda transparente + opacidade menor
+                const isActive = index === this.currentImageIndex;
+                let classes = "w-16 h-16 lg:w-20 lg:h-20 object-cover rounded cursor-pointer border-2 transition-all hover:opacity-100 ";
+                classes += isActive ? "border-black opacity-100 shadow-md" : "border-transparent opacity-60 hover:border-gray-300";
+                
+                thumb.className = classes;
+                
+                // Evento de clique para trocar a foto
+                thumb.onclick = () => {
+                    this.currentImageIndex = index;
+                    this.updateCarouselDisplay(); // Atualiza tudo
+                };
+
+                this.thumbnailsContainer.appendChild(thumb);
+            });
         }
     }
 
-    nextImage() {
-        this.currentImageIndex = (this.currentImageIndex + 1) % this.currentGallery.length;
-        this.updateCarouselDisplay();
-    }
-
-    prevImage() {
-        this.currentImageIndex = (this.currentImageIndex - 1 + this.currentGallery.length) % this.currentGallery.length;
-        this.updateCarouselDisplay();
-    }
-    // ---------------------------
-
-    // --- Lógica do Zoom ---
+    // --- Lógica do Zoom (Mantida e Melhorada) ---
     handleZoom(e) {
         if (!this.imgElement) return;
         
         const rect = this.containerElement.getBoundingClientRect();
-        
-        // Posição do mouse dentro do container
         const x = e.clientX - rect.left;
         const y = e.clientY - rect.top;
 
-        // Converter para porcentagem
         const xPercent = (x / rect.width) * 100;
         const yPercent = (y / rect.height) * 100;
 
-        // Define o ponto de origem da transformação para onde o mouse está
         this.imgElement.style.transformOrigin = `${xPercent}% ${yPercent}%`;
-        // Aplica escala (2x)
-        this.imgElement.style.transform = 'scale(2.0)';
+        this.imgElement.style.transform = 'scale(2.2)'; // Zoom um pouco mais forte
     }
 
     resetZoom() {
         if (!this.imgElement) return;
         this.imgElement.style.transform = 'scale(1)';
-        // Resetar a origem depois da transição para evitar "pulo"
         setTimeout(() => {
              this.imgElement.style.transformOrigin = 'center center';
         }, 300);
     }
-    // ----------------------
 
-    // --- Métodos Auxiliares (Preços, Cores, Specs) ---
+    // --- Métodos de Dados (Specs, Prices, Colors) ---
     populatePrices(prices) {
         const container = document.getElementById('modalProductPrices');
         if(!container) return;
         container.innerHTML = '';
         
         prices.forEach((price, index) => {
-            const priceElement = document.createElement('div');
-            // Classes CSS
-            priceElement.className = `border border-gray-200 p-4 rounded cursor-pointer transition-all hover:border-black flex justify-between items-center ${index === 0 ? 'selected border-black bg-gray-50' : ''}`;
+            const el = document.createElement('div');
+            el.className = `border p-3 rounded cursor-pointer transition-all flex justify-between items-center ${index === 0 ? 'border-black bg-gray-50' : 'border-gray-200 hover:border-gray-400'}`;
             
-            priceElement.onclick = () => this.selectPrice(index, priceElement);
-            priceElement.innerHTML = `
+            el.onclick = () => {
+                // Remove seleção dos outros
+                Array.from(container.children).forEach(c => {
+                    c.classList.remove('border-black', 'bg-gray-50');
+                    c.classList.add('border-gray-200');
+                });
+                // Adiciona neste
+                el.classList.remove('border-gray-200');
+                el.classList.add('border-black', 'bg-gray-50');
+                this.selectedPrice = index;
+            };
+
+            el.innerHTML = `
                 <div>
-                    <h4 class="font-semibold text-sm uppercase">${price.type}</h4>
+                    <h4 class="font-bold text-sm uppercase">${price.type}</h4>
                     <p class="text-xs text-gray-500">${price.description}</p>
                 </div>
                 <span class="font-bold text-lg">${price.price}</span>`;
             
-            container.appendChild(priceElement);
+            container.appendChild(el);
             if (index === 0) this.selectedPrice = 0;
         });
     }
@@ -469,11 +437,10 @@ class ProductModalManager {
         
         colors.forEach((color, index) => {
             const el = document.createElement('div');
-            el.className = 'color-option w-8 h-8 rounded-full cursor-pointer border-2 border-transparent hover:scale-110 transition-transform shadow-sm relative';
+            el.className = 'color-option w-10 h-10 rounded-full cursor-pointer border-2 border-transparent hover:scale-110 transition-transform shadow-sm relative';
             el.style.backgroundColor = color.color;
             el.title = color.name;
             
-            // Borda interna para preto
             if(color.color.toLowerCase() === '#000000' || color.color === '#000') {
                 el.style.boxShadow = 'inset 0 0 0 1px rgba(255,255,255,0.3)';
             }
@@ -483,35 +450,8 @@ class ProductModalManager {
         });
     }
 
-    populateSpecs(specs) {
-        const container = document.getElementById('modalProductSpecs');
-        if(!container) return;
-        container.innerHTML = '';
-        
-        specs.forEach(spec => {
-            const specEl = document.createElement('div');
-            specEl.className = 'flex justify-between border-b border-gray-100 py-1 last:border-0';
-            specEl.innerHTML = `
-                <span class="font-medium text-gray-800">${spec.label}</span>
-                <span class="text-gray-500 text-right">${spec.value}</span>`;
-            container.appendChild(specEl);
-        });
-    }
-
-    selectPrice(index, element) {
-        const container = document.getElementById('modalProductPrices');
-        Array.from(container.children).forEach(el => {
-            el.classList.remove('border-black', 'bg-gray-50');
-            el.classList.add('border-gray-200');
-        });
-        
-        element.classList.remove('border-gray-200');
-        element.classList.add('border-black', 'bg-gray-50');
-        this.selectedPrice = index;
-    }
-
     selectColor(index, element) {
-        // 1. Atualiza visual das bolinhas (borda preta na selecionada)
+        // Visual da bolinha
         const container = document.getElementById('modalProductColors');
         Array.from(container.children).forEach(el => {
             el.classList.remove('ring-2', 'ring-offset-2', 'ring-black');
@@ -520,27 +460,35 @@ class ProductModalManager {
         
         this.selectedColor = index;
 
-        // 2. LÓGICA NOVA: Trocar as fotos do carrossel
+        // Troca de Galeria (Preto vs Marrom, etc)
         const colorData = this.product.colors[index];
-        
         if (colorData && colorData.gallery && colorData.gallery.length > 0) {
-            // Se a cor tem fotos específicas (como o Marrom), usa elas
             this.currentGallery = colorData.gallery;
         } else {
-            // Se não tem (como o Preto), volta para as fotos originais do produto
+            // Fallback para galeria padrão
             this.currentGallery = (this.product.gallery && this.product.gallery.length > 0) 
                 ? this.product.gallery 
                 : [this.product.image];
         }
 
-        // 3. Reseta o carrossel para a primeira foto e atualiza a tela
         this.currentImageIndex = 0;
-        this.updateCarouselDisplay();
+        this.updateCarouselDisplay(); // Atualiza a foto grande e recria as miniaturas
+    }
+
+    populateSpecs(specs) {
+        const container = document.getElementById('modalProductSpecs');
+        if(!container) return;
+        container.innerHTML = '';
+        specs.forEach(spec => {
+            const div = document.createElement('div');
+            div.className = 'flex justify-between border-b border-gray-100 py-1 last:border-0';
+            div.innerHTML = `<span class="font-medium text-gray-800">${spec.label}</span><span class="text-gray-500">${spec.value}</span>`;
+            container.appendChild(div);
+        });
     }
 
     finalizePurchase() {
         if (!this.product) return;
-
         const produto = {
             nome: this.product.name,
             preco: (this.selectedPrice !== null && this.product.prices[this.selectedPrice]) ? {
@@ -551,8 +499,10 @@ class ProductModalManager {
                 nome: this.product.colors[this.selectedColor].name
             } : null
         };
-
-        comprarPeloWhatsApp(produto);
+        
+        if (typeof comprarPeloWhatsApp === 'function') {
+            comprarPeloWhatsApp(produto);
+        }
         this.closeModal();
     }
 }

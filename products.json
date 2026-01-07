@@ -17,7 +17,6 @@
       { 
         "name": "Preto", 
         "color": "#000000" 
-
       },
       { 
         "name": "Marrom", 
@@ -82,6 +81,18 @@
           "img/cases/sax-alto/cinza/sax-alto-cinza2.png",
           "img/cases/sax-alto/cinza/sax-alto-cinza3.png",
           "img/cases/sax-alto/cinza/sax-alto-cinza4.png"
+        ]
+      },
+      { 
+        "name": "Azul", 
+        "color": "#6c84ac", 
+        "gallery": [
+          "img/cases/sax-alto/azul/sax-alto-azul1.jpg",
+          "img/cases/sax-alto/azul/sax-alto-azul2.jpg",
+          "img/cases/sax-alto/azul/sax-alto-azul3.jpg",
+          "img/cases/sax-alto/azul/sax-alto-azul4.jpg",
+          "img/cases/sax-alto/azul/sax-alto-azul5.jpg",
+          "img/cases/sax-alto/azul/sax-alto-azul6.jpg"
         ]
       }
     ],
