@@ -152,6 +152,30 @@
     ]
   },
   {
+    "id": "french-horn",
+    "name": "Case Trompa",
+    "description": "Case super resistente feito em fibra de vidro com revestimento externo em Nylon e costura dupla. Possui interior em tecido aveludado, correias para transporte, pés de apoio reforçados, zíper de alta qualidade e bolsa externa para hinário/partituras. Leve, compacto e seguro.",
+    "image": "img/cases/trompa/preto/trompa.png",
+    "gallery": [
+      "img/cases/trompa/preto/trompa.png",
+      "img/cases/trompa/preto/trompa2.png",
+      "img/cases/trompa/preto/trompa3.png",
+      "img/cases/trompa/preto/trompa4.png"
+    ],
+    "prices": [
+      { "type": "Standard", "price": "R$ 1.290,00", "description": "Proteção completa" }
+    ],
+    "colors": [
+      { "name": "Preto", "color": "#000000" }
+    ],
+    "specs": [
+      { "label": "Material", "value": "Fibra de vidro / Nylon" },
+      { "label": "Interior", "value": "Tecido aveludado" },
+      { "label": "Extras", "value": "Bolsa externa e correias" },
+      { "label": "Peso estimado", "value": "2,5 kg" }
+    ]
+  },
+  {
     "id": "trumpet",
     "name": "Case Trompete",
     "description": "Case super resistente feito em fibra de vidro com revestimento externo em Nylon e costura dupla. Possui interior em tecido aveludado, correias para transporte, pés de apoio reforçados, zíper de alta qualidade e bolsa externa para hinário/partituras. Leve, compacto e seguro.",
