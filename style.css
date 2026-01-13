@@ -431,8 +431,8 @@ input:focus, textarea:focus, select:focus {
   width: 100%;
   height: auto;
   /* modificar aspect-ratio para deixar a imagem mais alta ou mais baixa */
-  aspect-ratio: 4 / 4; 
-  object-position: center;
+  aspect-ratio: 4 / 3; 
+  object-position: 50% 50%;
   object-fit: cover;
   display: block;
 }
