@@ -415,10 +415,10 @@ input:focus, textarea:focus, select:focus {
   .product-grid-4 { grid-template-columns: repeat(2, 1fr); }
 }
 @media (min-width: 1024px) {             /* lg */
-  .product-grid-4 { grid-template-columns: repeat(3, 1fr); }
+  .product-grid-4 { grid-template-columns: repeat(2, 1fr); }
 }
 @media (min-width: 1280px) {             /* xl - máximo 4 colunas */
-  .product-grid-4 { grid-template-columns: repeat(4, 1fr); }
+  .product-grid-4 { grid-template-columns: repeat(3, 1fr); }
 }
 
 .product-card {
