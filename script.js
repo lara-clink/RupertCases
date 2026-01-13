@@ -576,11 +576,19 @@ function getGridColumnCount() {
     return Math.max(1, count);
 }
 
-function renderNextProducts() {
+function renderNextProducts(initialLoad = false) {
     const grid = document.getElementById('productGrid');
     if (!grid || !ALL_PRODUCTS.length) return;
 
-    const pageSize = getGridColumnCount(); 
+    let pageSize;
+    if (initialLoad) {
+        // Na carga inicial, mostrar 3 produtos
+        pageSize = 3;
+    } else {
+        // Em cargas subsequentes, mostrar todos os produtos restantes
+        pageSize = ALL_PRODUCTS.length - renderedCount;
+    }
+    
     const slice = ALL_PRODUCTS.slice(renderedCount, renderedCount + pageSize);
     slice.forEach(p => {
         const card = document.createElement('div');
@@ -625,7 +633,7 @@ async function loadProducts() {
         if (grid) grid.innerHTML = '';
         renderedCount = 0;
 
-        renderNextProducts();
+        renderNextProducts(true); // true indica que é a carga inicial
 
         const btn = document.getElementById('showMoreBtn');
         if (btn) {
