@@ -500,3 +500,12 @@ button.card-arrow:focus::before {
   flex: 0 0 auto;
   border-radius: 6px;
 }
+
+/* Fundo que repete verticalmente e ocupa toda a largura da seção */
+.bg-vertical-cover {
+  background-image: url('img/background.png');
+  background-repeat: repeat-y;   /* repete no eixo Y */
+  background-size: 100% auto;    /* cobre toda a largura; altura proporcional */
+  background-position: center top;
+  background-color: transparent; 
+}
