@@ -486,3 +486,17 @@ button.card-arrow:hover::before,
 button.card-arrow:focus::before {
   content: none !important;
 }
+
+/* Thumbnails do modal: mais espaço e sem scroll */
+#modalThumbnails {
+  min-height: 112px;      /* ajuste para 128–144px se precisar de 2 linhas */
+  overflow: visible;       /* remove o scroll horizontal */
+}
+
+#modalThumbnails img {
+  width: 96px;             /* tamanho uniforme */
+  height: 96px;
+  object-fit: cover;
+  flex: 0 0 auto;
+  border-radius: 6px;
+}
