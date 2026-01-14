@@ -9,7 +9,7 @@ class AnimationManager {
     }
 
     init() {
-        // Verificar se o usuário prefere animações reduzidas
+        // Verificar se o utilizador prefere animações reduzidas
         const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
         if (prefersReducedMotion) return;
 
@@ -50,7 +50,7 @@ class AnimationManager {
     }
 
     handleInitialLoad() {
-        // Animar elementos que já estão visíveis na tela
+        // Animar elementos que já estão visíveis no ecrã
         setTimeout(() => {
             document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right, .scale-in').forEach(el => {
                 const rect = el.getBoundingClientRect();
@@ -92,7 +92,7 @@ class NavigationManager {
                 }
             });
 
-            // Fechar menu ao clicar em um link
+            // Fechar menu ao clicar num link
             mobileMenu.querySelectorAll('a').forEach(link => {
                 link.addEventListener('click', () => {
                     mobileMenu.classList.add('hidden');
@@ -178,7 +178,8 @@ class FormManager {
                 const numeroVendedor = "5511947029458"; 
                 let mensagem = `Olá! Meu nome é *${nome}*.\n\n${mensagemUsuario}`;
                 
-                const linkWhatsApp = `https://web.whatsapp.com/send?phone=${numeroVendedor}&text=${encodeURIComponent(mensagem)}`;
+                // CORREÇÃO: api.whatsapp.com para funcionar no telemóvel
+                const linkWhatsApp = `https://api.whatsapp.com/send?phone=${numeroVendedor}&text=${encodeURIComponent(mensagem)}`;
                 window.open(linkWhatsApp, "_blank");
 
                 setTimeout(() => {
@@ -322,8 +323,6 @@ class ProductModalManager {
         if (firstColorEl) this.selectColor(0, firstColorEl);
         
         // Atualiza a exibição (Imagem principal + Miniaturas)
-        // Se selectColor já tiver sido chamado acima, ele atualiza o display.
-        // Se não houver cores, precisamos chamar manualmente.
         if (!firstColorEl) this.updateCarouselDisplay(); 
 
         this.modal.classList.remove('hidden');
@@ -337,7 +336,6 @@ class ProductModalManager {
         this.resetZoom();
     }
 
-    // --- Lógica Principal: Atualiza Foto Grande e Gera Miniaturas ---
     updateCarouselDisplay() {
         if (!this.imgElement || !this.thumbnailsContainer) return;
 
@@ -348,24 +346,20 @@ class ProductModalManager {
         // 2. Gera as Miniaturas
         this.thumbnailsContainer.innerHTML = '';
         
-        // Se só tiver 1 imagem, não precisa mostrar lista de miniaturas (opcional, pode remover o if se quiser mostrar sempre)
         if (this.currentGallery.length > 1) {
             this.currentGallery.forEach((src, index) => {
                 const thumb = document.createElement('img');
                 thumb.src = src;
                 
-                // Classes para estilo da miniatura
-                // Se for a imagem ativa: borda preta grossa. Se não: borda transparente + opacidade menor
                 const isActive = index === this.currentImageIndex;
                 let classes = "w-16 h-16 lg:w-20 lg:h-20 object-cover rounded cursor-pointer border-2 transition-all hover:opacity-100 ";
                 classes += isActive ? "border-black opacity-100 shadow-md" : "border-transparent opacity-60 hover:border-gray-300";
                 
                 thumb.className = classes;
                 
-                // Evento de clique para trocar a foto
                 thumb.onclick = () => {
                     this.currentImageIndex = index;
-                    this.updateCarouselDisplay(); // Atualiza tudo
+                    this.updateCarouselDisplay(); 
                 };
 
                 this.thumbnailsContainer.appendChild(thumb);
@@ -373,7 +367,6 @@ class ProductModalManager {
         }
     }
 
-    // --- Lógica do Zoom (Mantida e Melhorada) ---
     handleZoom(e) {
         if (!this.imgElement) return;
         
@@ -385,7 +378,7 @@ class ProductModalManager {
         const yPercent = (y / rect.height) * 100;
 
         this.imgElement.style.transformOrigin = `${xPercent}% ${yPercent}%`;
-        this.imgElement.style.transform = 'scale(2.2)'; // Zoom um pouco mais forte
+        this.imgElement.style.transform = 'scale(2.2)'; 
     }
 
     resetZoom() {
@@ -396,7 +389,6 @@ class ProductModalManager {
         }, 300);
     }
 
-    // --- Métodos de Dados (Specs, Prices, Colors) ---
     populatePrices(prices) {
         const container = document.getElementById('modalProductPrices');
         if(!container) return;
@@ -407,12 +399,10 @@ class ProductModalManager {
             el.className = `border p-3 rounded cursor-pointer transition-all flex justify-between items-center ${index === 0 ? 'border-black bg-gray-50' : 'border-gray-200 hover:border-gray-400'}`;
             
             el.onclick = () => {
-                // Remove seleção dos outros
                 Array.from(container.children).forEach(c => {
                     c.classList.remove('border-black', 'bg-gray-50');
                     c.classList.add('border-gray-200');
                 });
-                // Adiciona neste
                 el.classList.remove('border-gray-200');
                 el.classList.add('border-black', 'bg-gray-50');
                 this.selectedPrice = index;
@@ -451,7 +441,6 @@ class ProductModalManager {
     }
 
     selectColor(index, element) {
-        // Visual da bolinha
         const container = document.getElementById('modalProductColors');
         Array.from(container.children).forEach(el => {
             el.classList.remove('ring-2', 'ring-offset-2', 'ring-black');
@@ -460,19 +449,17 @@ class ProductModalManager {
         
         this.selectedColor = index;
 
-        // Troca de Galeria (Preto vs Marrom, etc)
         const colorData = this.product.colors[index];
         if (colorData && colorData.gallery && colorData.gallery.length > 0) {
             this.currentGallery = colorData.gallery;
         } else {
-            // Fallback para galeria padrão
             this.currentGallery = (this.product.gallery && this.product.gallery.length > 0) 
                 ? this.product.gallery 
                 : [this.product.image];
         }
 
         this.currentImageIndex = 0;
-        this.updateCarouselDisplay(); // Atualiza a foto grande e recria as miniaturas
+        this.updateCarouselDisplay();
     }
 
     populateSpecs(specs) {
@@ -536,21 +523,19 @@ function comprarPeloWhatsApp(produto) {
   
     mensagem += `\nGostaria de saber mais detalhes e finalizar a compra.`;
   
-    const linkWhatsApp = `https://web.whatsapp.com/send?phone=${numeroVendedor}&text=${encodeURIComponent(mensagem)}`;
+    // CORREÇÃO: api.whatsapp.com para funcionar no telemóvel
+    const linkWhatsApp = `https://api.whatsapp.com/send?phone=${numeroVendedor}&text=${encodeURIComponent(mensagem)}`;
     window.open(linkWhatsApp, "_blank");
 }
 
 // ===== INICIALIZAÇÃO =====
 
-// Instanciar o gerenciador do modal
 const productModalManager = new ProductModalManager();
 
-// Expor funções para o HTML
 window.openProductModal = (id) => productModalManager.openModal(id);
 window.closeProductModal = () => productModalManager.closeModal();
 window.finalizePurchase = () => productModalManager.finalizePurchase();
 
-// Inicialização principal
 document.addEventListener('DOMContentLoaded', () => {
     if ('IntersectionObserver' in window) {
         new AnimationManager();
@@ -560,7 +545,7 @@ document.addEventListener('DOMContentLoaded', () => {
     new FormManager();
     new SpecialAnimations();
     
-    loadProducts(); // Carrega o JSON
+    loadProducts(); 
 });
 
 
@@ -582,10 +567,8 @@ function renderNextProducts(initialLoad = false) {
 
     let pageSize;
     if (initialLoad) {
-        // Na carga inicial, mostrar 3 produtos
         pageSize = 3;
     } else {
-        // Em cargas subsequentes, mostrar todos os produtos restantes
         pageSize = ALL_PRODUCTS.length - renderedCount;
     }
     
@@ -611,7 +594,6 @@ function renderNextProducts(initialLoad = false) {
 
         grid.appendChild(card);
         
-        // Simples delay para animação CSS
         setTimeout(() => card.classList.add('visible'), 50);
     });
 
@@ -626,14 +608,13 @@ async function loadProducts() {
         const products = await response.json();
         ALL_PRODUCTS = Array.isArray(products) ? products : [];
         
-        // Passar produtos para o modal manager
         productModalManager.setProducts(ALL_PRODUCTS);
 
         const grid = document.getElementById('productGrid');
         if (grid) grid.innerHTML = '';
         renderedCount = 0;
 
-        renderNextProducts(true); // true indica que é a carga inicial
+        renderNextProducts(true);
 
         const btn = document.getElementById('showMoreBtn');
         if (btn) {

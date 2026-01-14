@@ -112,7 +112,6 @@ body {
 
 /* Fundo escuro semi-transparente atrás do texto */
 .banner-content {
-
     padding: 2rem 1.5rem;
     border-radius: 0.5rem;
     max-width: 800px;
@@ -124,7 +123,6 @@ body {
     font-size: clamp(2rem, 4vw, 3rem);
     line-height: 1.4;
     margin-bottom: 1.5rem;
-
     font-family: 'Saira Condensed', sans-serif;
     font-weight: 200;
 }
@@ -368,28 +366,29 @@ input:focus, textarea:focus, select:focus {
 }
 
 
-/* AJUSTE: modal mais largo/alto em desktop (sobrescreve max-w-4xl/h-90vh) */
+/* AJUSTE: modal mais largo/alto em desktop */
 #productModal > .bg-white {
     width: min(95vw, 80rem); 
     max-width: 80rem;
     max-height: 92vh;
 }
 
-/* AJUSTE: imagem em destaque (mais alta em desktop) */
+/* AJUSTE: imagem em destaque */
 #modalProductImage {
     width: 100%;
     height: min(60vh, 720px); 
-    object-fit: cover;
+    object-fit: contain; /* CORREÇÃO: alterado de cover para contain */
+    background-color: #fff; /* Adicionado fundo branco para preencher áreas vazias */
 }
 
-/* Responsividade do modal (mantém confortável em telas menores) */
+/* Responsividade do modal */
 @media (max-width: 1024px) {
   #productModal > .bg-white {
     width: calc(100vw - 2rem);
     max-height: calc(100vh - 2rem);
   }
   #modalProductImage {
-    height: 50vh;
+    height: 40vh; /* CORREÇÃO: Altura reduzida para caber melhor em telemóveis */
   }
 }
 
@@ -430,7 +429,6 @@ input:focus, textarea:focus, select:focus {
 .product-card .product-image {
   width: 100%;
   height: auto;
-  /* modificar aspect-ratio para deixar a imagem mais alta ou mais baixa */
   aspect-ratio: 4 / 3; 
   object-position: 50% 50%;
   object-fit: cover;
@@ -476,11 +474,10 @@ button.card-arrow,
 button.card-arrow:hover,
 button.card-arrow:focus,
 button.card-arrow:active {
-  transform: translateY(-50%) !important; /* mantém centralizado */
-  box-shadow: none !important;            /* neutraliza sombra do hover global */
+  transform: translateY(-50%) !important; 
+  box-shadow: none !important;            
 }
 
-/* Desativa o brilho/efeito ::before do botão genérico nas setas */
 button.card-arrow::before,
 button.card-arrow:hover::before,
 button.card-arrow:focus::before {
@@ -489,23 +486,23 @@ button.card-arrow:focus::before {
 
 /* Thumbnails do modal: mais espaço e sem scroll */
 #modalThumbnails {
-  min-height: 112px;      /* ajuste para 128–144px se precisar de 2 linhas */
-  overflow: visible;       /* remove o scroll horizontal */
+  min-height: 112px;
+  overflow: visible;
 }
 
 #modalThumbnails img {
-  width: 96px;             /* tamanho uniforme */
+  width: 96px;
   height: 96px;
   object-fit: cover;
   flex: 0 0 auto;
   border-radius: 6px;
 }
 
-/* Fundo que repete verticalmente e ocupa toda a largura da seção */
+/* Fundo que repete verticalmente e ocupa toda a largura da secção */
 .bg-vertical-cover {
   background-image: url('img/background.png');
-  background-repeat: repeat-y;   /* repete no eixo Y */
-  background-size: 100% auto;    /* cobre toda a largura; altura proporcional */
+  background-repeat: repeat-y; 
+  background-size: 100% auto;
   background-position: center top;
   background-color: transparent; 
 }
