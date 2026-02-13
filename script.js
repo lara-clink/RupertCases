@@ -318,6 +318,25 @@ class ProductModalManager {
         this.populateColors(product.colors);
         this.populateSpecs(product.specs);
 
+        // ===== LÓGICA DO BOTÃO PAGBANK =====
+        const pagBankBtn = document.getElementById('modalPagBankButton');
+        
+        // Pega o link do JSON
+        let link = product.pagbank_link;
+
+        // Se for o Sax Alto e não tiver link no JSON, usa o link hardcoded (conforme solicitado)
+        if (product.id === 'sax-alto' && !link) {
+            link = "https://sacola.pagbank.com.br/f1794ede-f423-49a9-b6aa-429560737e4f";
+        }
+
+        if (link) {
+            pagBankBtn.classList.remove('hidden');
+            pagBankBtn.onclick = () => window.open(link, '_blank');
+        } else {
+            pagBankBtn.classList.add('hidden');
+        }
+        // =====================================
+
         // Selecionar primeira cor se houver
         const firstColorEl = document.querySelector('#modalProductColors .color-option');
         if (firstColorEl) this.selectColor(0, firstColorEl);

@@ -2,6 +2,7 @@
   {
     "id": "trombone-pistos",
     "name": "Case Trombone de Pistos",
+    "pagbank_link": "https://sacola.pagbank.com.br/a337827b-1c34-4009-91cb-cfeec645dd68",
     "description": "Case super resistente feito em fibra de vidro com revestimento externo em Nylon e costura dupla. Possui interior em tecido aveludado, correias para transporte, pés de apoio reforçados, zíper de alta qualidade e bolsa externa para hinário/partituras. Leve, compacto e seguro.",
     "image": "img/cases/trombone-pisto/preto/TrombonePisto1.jpg",
     "gallery": [
@@ -39,6 +40,7 @@
   {
     "id": "trombone-vara",
     "name": "Case Trombone de Vara Tenor",
+        "pagbank_link": "https://sacola.pagbank.com.br/4d4bcba0-8ddf-47ef-9447-507488b7a142",
     "description": "Case super resistente feito em fibra de vidro com revestimento externo em Nylon e costura dupla. Possui interior em tecido aveludado, correias para transporte, pés de apoio reforçados, zíper de alta qualidade e bolsa externa para hinário/partituras. Leve, compacto e seguro.",
     "image": "img/cases/trombone-vara/preto/TromboneVara2.jpg",
     "gallery": [
@@ -63,6 +65,7 @@
   {
     "id": "sax-alto",
     "name": "Case Saxofone Alto",
+    "pagbank_link": "https://sacola.pagbank.com.br/f1794ede-f423-49a9-b6aa-429560737e4f",
     "description": "Case super resistente feito em fibra de vidro com revestimento externo em Nylon e costura dupla. Possui interior em tecido aveludado, correias para transporte, pés de apoio reforçados, zíper de alta qualidade e bolsa externa para hinário/partituras. Leve, compacto e seguro.",
     "image": "img/cases/sax-alto/preto/sax-alto.png",
     "gallery": [
@@ -106,6 +109,7 @@
   {
     "id": "sax-tenor",
     "name": "Case Saxofone Tenor",
+    "pagbank_link": "https://sacola.pagbank.com.br/fc6aee52-a3f9-4ceb-94fe-dddec7275017",
     "description": "Case super resistente feito em fibra de vidro com revestimento externo em Nylon e costura dupla. Possui interior em tecido aveludado, correias para transporte, pés de apoio reforçados, zíper de alta qualidade e bolsa externa para hinário/partituras. Leve, compacto e seguro.",
     "image": "img/cases/sax-tenor/preto/sax-tenor.png",
     "gallery": [
@@ -130,6 +134,7 @@
   {
     "id": "euphonium",
     "name": "Case Euphonium",
+    "pagbank_link": "https://sacola.pagbank.com.br/02c556a6-a2ea-4df3-aae1-993abc465bb3",
     "description": "Case super resistente feito em fibra de vidro com revestimento externo em Nylon e costura dupla. Possui interior em tecido aveludado, correias para transporte, pés de apoio reforçados, zíper de alta qualidade e bolsa externa para hinário/partituras. Leve, compacto e seguro.",
     "image": "img/cases/eufonio/preto/eufonio.png",
     "gallery": [
@@ -154,6 +159,7 @@
   {
     "id": "french-horn",
     "name": "Case Trompa",
+    "pagbank_link": "https://sacola.pagbank.com.br/ebb563c8-b7cf-44b2-bf3f-463458bc6858",
     "description": "Case super resistente feito em fibra de vidro com revestimento externo em Nylon e costura dupla. Possui interior em tecido aveludado, correias para transporte, pés de apoio reforçados, zíper de alta qualidade e bolsa externa para hinário/partituras. Leve, compacto e seguro.",
     "image": "img/cases/trompa/preto/trompa.png",
     "gallery": [
@@ -178,6 +184,7 @@
   {
     "id": "trumpet",
     "name": "Case Trompete",
+    "pagbank_link": "https://sacola.pagbank.com.br/60136929-b8c2-48ac-884e-6eab0ddfbe41",
     "description": "Case super resistente feito em fibra de vidro com revestimento externo em Nylon e costura dupla. Possui interior em tecido aveludado, correias para transporte, pés de apoio reforçados, zíper de alta qualidade e bolsa externa para hinário/partituras. Leve, compacto e seguro.",
     "image": "img/cases/trompete/preto/trompete.png",
     "gallery": [

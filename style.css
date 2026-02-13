@@ -199,6 +199,15 @@ button:hover {
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
 }
 
+/* COR DO BOTÃO PAGBANK ADICIONADA AQUI */
+.bg-pagbank {
+    background-color: #9cd32c; /* Verde PagBank */
+    color: #000000;
+}
+.bg-pagbank:hover {
+    background-color: #8bc34a; /* Um pouco mais escuro no hover */
+}
+
 /* ===== ANIMAÇÕES DOS FORMULÁRIOS ===== */
 input, textarea, select {
     font-family: 'Oswald', sans-serif;
