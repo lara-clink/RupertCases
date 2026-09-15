@@ -1,5 +1,73 @@
 [
   {
+  "id": "sax-duplo",
+    "name": "Case Dupla Sax Alto/Soprano",
+    "pagbank_link": "https://pagamento.pagbank.com.br/pagamento?code=755a51b3-abf4-40be-99c3-e10a3a817d35&t=cad902ff-644d-4285-be98-8ec3ba76d7e9",
+    "description": "Case super resistente feito em fibra de vidro com revestimento externo em Nylon e costura dupla. Possui interior em tecido aveludado, correias para transporte, pés de apoio reforçados, zíper de alta qualidade e bolsa externa para hinário/partituras. Leve, compacto e seguro.",
+    "image": "img/cases/sax-duplo/cinza-esverdeado/sax-duplo-cinza2.png",
+    "gallery": [
+      "img/cases/sax-duplo/cinza-esverdeado/sax-duplo-cinza1.png",
+      "img/cases/sax-duplo/cinza-esverdeado/sax-duplo-cinza2.png",
+      "img/cases/sax-duplo/cinza-esverdeado/sax-duplo-cinza3.png",
+      "img/cases/sax-duplo/cinza-esverdeado/sax-duplo-cinza4.png",
+      "img/cases/sax-duplo/cinza-esverdeado/sax-duplo-cinza5.png"
+    ],
+    "prices": [
+      { "type": "Standard", "price": "R$ 1.590,00", "description": "Proteção completa" }
+    ],
+    "colors": [
+      { 
+        "name": "Cinza", 
+        "color": "#575d59" 
+      }
+
+    ],
+    "specs": [
+      { "label": "Material", "value": "Fibra de vidro / Nylon" },
+      { "label": "Interior", "value": "Tecido aveludado" },
+      { "label": "Extras", "value": "Bolsa externa e correias" },
+      { "label": "Peso estimado", "value": "3,8 kg" }
+    ]
+  },
+  {
+  "id": "trompete-duplo",
+    "name": "Case Dupla Trompete/Flugelhorn",
+    "pagbank_link": "https://pagamento.pagbank.com.br/pagamento?code=766c7d12-ce8d-467d-ba7c-03fd2dc581b7&t=90ce315d-ccd9-48a5-92e8-730f3aaee34e",
+    "description": "Case super resistente feito em fibra de vidro com revestimento externo em Nylon e costura dupla. Possui interior em tecido aveludado, correias para transporte, pés de apoio reforçados, zíper de alta qualidade e bolsa externa para hinário/partituras. Leve, compacto e seguro.",
+    "image": "img/cases/trompete-duplo/cinza/trompete-duplo-cinza2.png",
+    "gallery": [
+      "img/cases/trompete-duplo/creme/trompete-duplo-creme2.png",
+      "img/cases/trompete-duplo/creme/trompete-duplo-creme1.png",
+      "img/cases/trompete-duplo/creme/trompete-duplo-creme3.png"
+    ],
+    "prices": [
+      { "type": "Standard", "price": "R$ 1.390,00", "description": "Proteção completa" }
+    ],
+    "colors": [
+      { 
+        "name": "Creme", 
+        "color": "#ebe4cb" 
+      },
+      { 
+        "name": "CinzaClaro", 
+        "color": "#c7c6c4", 
+        "gallery": [
+          "img/cases/trompete-duplo/cinza/trompete-duplo-cinza2.png",
+          "img/cases/trompete-duplo/cinza/trompete-duplo-cinza1.png",
+          "img/cases/trompete-duplo/cinza/trompete-duplo-cinza3.png"
+        ]
+      }
+
+    ],
+    "specs": [
+      { "label": "Material", "value": "Fibra de vidro / Nylon" },
+      { "label": "Interior", "value": "Tecido aveludado" },
+      { "label": "Extras", "value": "Bolsa externa e correias" },
+      { "label": "Peso estimado", "value": "3,8 kg" }
+    ]
+  },
+  
+  {
     "id": "trombone-pistos",
     "name": "Case Trombone de Pistos",
     "pagbank_link": "https://sacola.pagbank.com.br/a337827b-1c34-4009-91cb-cfeec645dd68",
@@ -98,6 +166,7 @@
           "img/cases/sax-alto/azul/sax-alto-azul6.jpg"
         ]
       }
+       
     ],
     "specs": [
       { "label": "Material", "value": "Fibra de vidro / Nylon" },
@@ -195,7 +264,19 @@
       { "type": "Standard", "price": "R$ 790,00", "description": "Proteção completa" }
     ],
     "colors": [
-      { "name": "Preto", "color": "#000000" }
+      { "name": "Preto", "color": "#000000" },
+      { 
+        "name": "CinzaClaro", 
+        "color": "#c7c6c4", 
+        "gallery": [
+          "img/cases/trompete/cinza/trompete-cinza1.png",
+          "img/cases/trompete/cinza/trompete-cinza2.png",
+          "img/cases/trompete/cinza/trompete-cinza3.png",
+          "img/cases/trompete/cinza/trompete-cinza4.png",
+          "img/cases/trompete/cinza/trompete-cinza5.png",
+          "img/cases/trompete/cinza/trompete-cinza6.png"
+        ]
+      }
     ],
     "specs": [
       { "label": "Material", "value": "Fibra de vidro / Nylon" },
