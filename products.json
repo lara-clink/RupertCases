@@ -38,6 +38,7 @@
     "gallery": [
       "img/cases/trompete-duplo/creme/trompete-duplo-creme2.png",
       "img/cases/trompete-duplo/creme/trompete-duplo-creme1.png",
+      "img/cases/trompete-duplo/caseAberta.png",
       "img/cases/trompete-duplo/creme/trompete-duplo-creme3.png"
     ],
     "prices": [
@@ -54,6 +55,7 @@
         "gallery": [
           "img/cases/trompete-duplo/cinza/trompete-duplo-cinza2.png",
           "img/cases/trompete-duplo/cinza/trompete-duplo-cinza1.png",
+          "img/cases/trompete-duplo/caseAberta.png",
           "img/cases/trompete-duplo/cinza/trompete-duplo-cinza3.png"
         ]
       }
@@ -255,26 +257,29 @@
     "name": "Case Trompete",
     "pagbank_link": "https://sacola.pagbank.com.br/60136929-b8c2-48ac-884e-6eab0ddfbe41",
     "description": "Case super resistente feito em fibra de vidro com revestimento externo em Nylon e costura dupla. Possui interior em tecido aveludado, correias para transporte, pés de apoio reforçados, zíper de alta qualidade e bolsa externa para hinário/partituras. Leve, compacto e seguro.",
-    "image": "img/cases/trompete/preto/trompete.png",
+    "image": "img/cases/trompete/cinza/trompete-cinza6.png",
     "gallery": [
-      "img/cases/trompete/preto/trompete.png",
-      "img/cases/trompete/preto/trompete2.png"
+      "img/cases/trompete/cinza/trompete-cinza1.png",
+      "img/cases/trompete/cinza/trompete-cinza2.png",
+      "img/cases/trompete/cinza/trompete-cinza3.png",
+      "img/cases/trompete/cinza/trompete-cinza4.png",
+      "img/cases/trompete/cinza/trompete-cinza5.png",
+      "img/cases/trompete/cinza/trompete-cinza6.png"
     ],
     "prices": [
       { "type": "Standard", "price": "R$ 790,00", "description": "Proteção completa" }
     ],
     "colors": [
-      { "name": "Preto", "color": "#000000" },
       { 
         "name": "CinzaClaro", 
-        "color": "#c7c6c4", 
+        "color": "#c7c6c4" 
+      },
+      { 
+        "name": "Preto", 
+        "color": "#000000",
         "gallery": [
-          "img/cases/trompete/cinza/trompete-cinza1.png",
-          "img/cases/trompete/cinza/trompete-cinza2.png",
-          "img/cases/trompete/cinza/trompete-cinza3.png",
-          "img/cases/trompete/cinza/trompete-cinza4.png",
-          "img/cases/trompete/cinza/trompete-cinza5.png",
-          "img/cases/trompete/cinza/trompete-cinza6.png"
+          "img/cases/trompete/preto/trompete.png",
+          "img/cases/trompete/preto/trompete2.png"
         ]
       }
     ],

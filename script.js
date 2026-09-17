@@ -597,9 +597,10 @@ function renderNextProducts(initialLoad = false) {
         card.className = "product-card bg-white rounded-none shadow-lg overflow-hidden cursor-pointer scale-in";
         card.onclick = () => window.openProductModal(p.id);
 
+        // Substitua o trecho interno do card.innerHTML por este:
         card.innerHTML = `
             <div class="relative">
-                <img src="${p.image}" alt="${p.name}" class="product-image w-full aspect-square object-cover object-center">
+                <img src="${p.image}" alt="Case para ${p.name} - Rubet Atelier" loading="lazy" class="product-image w-full aspect-square object-cover object-center">
                 
                 <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300">
                     <div class="text-center text-white">
@@ -610,7 +611,6 @@ function renderNextProducts(initialLoad = false) {
                     <h3 class="text-xl font-semibold text-white tracking-wide">${p.name}</h3>
                 </div>
             </div>`;
-
         grid.appendChild(card);
         
         setTimeout(() => card.classList.add('visible'), 50);
